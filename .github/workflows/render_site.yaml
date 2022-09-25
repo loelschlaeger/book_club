@@ -29,6 +29,9 @@ jobs:
         run: |
           if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
           renv::restore()
+      
+      - name: Install LaTeX
+        run: Rscript -e 'tinytex::install_tinytex()'
           
       - name: Render site
         run: Rscript -e 'rmarkdown::render_site()'

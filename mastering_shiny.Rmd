@@ -7,6 +7,7 @@ output:
     toc_float: true
   pdf_document:
     number_sections: true
+    latex_engine: pdflatex
 ---
 
 [Wickham, H. (2021). Mastering shiny. O'Reilly Media, Inc.](https://mastering-shiny.org/)
