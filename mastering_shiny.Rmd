@@ -24,9 +24,32 @@ knitr::asis_output('[Download PDF version](mastering_shiny.pdf)')
 
 # Case Study: ER Injuries
 
-
-
 # Workflow
+
+1. Development
+
+    1. Type *shinyapp* in .R file to insert Shiny app snippet
+   
+    2. Keyboard shortcut to run the app: *Ctrl+Shift+Enter*
+    
+    3. Relaunch app after every save with background job: 
+    
+       - add script `shiny-run.R` to folder with `app.R`:
+       
+         ```{r, eval = FALSE}
+         options(shiny.autoreload = TRUE)
+         shiny::runApp()
+         ```
+         
+       - with active `shiny-run.R`, RStudio > Tools > Background Jobs > Start Background Job
+       
+       - copy URL from Jobs pane and run `rstudioapi::viewer("<URL>")`
+
+2. Debugging
+
+   1.
+
+3. Reprexes
 
 # Layout, Themes, HTML
 
