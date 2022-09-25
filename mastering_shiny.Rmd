@@ -1,0 +1,24 @@
+---
+title: "Mastering Shiny"
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+  pdf_document:
+    number_sections: true
+---
+
+[Wickham, H. (2021). Mastering shiny. O'Reilly Media, Inc.](https://mastering-shiny.org/)
+
+```{r, eval=knitr::is_html_output(), echo=FALSE}
+knitr::asis_output('[Download PDF version](mastering_shiny.pdf)')
+```
+
+# Your First Shiny App
+
+# Basic UI
+
+# Basic Reactivity
+
+# Case Study: ER Injuries

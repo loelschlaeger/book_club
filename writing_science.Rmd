@@ -1,0 +1,153 @@
+---
+title: "Writing Science"
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+  pdf_document:
+    number_sections: true
+---
+
+[Schimel, J. (2012). Writing science: how to write papers that get cited and proposals that get funded. Oxford University Press.](https://katalogplus.ub.uni-bielefeld.de/Record/991022342879706442)
+
+```{r, eval=knitr::is_html_output(), echo=FALSE}
+knitr::asis_output('[Download PDF version](writing_science.pdf)')
+```
+
+# Writing in Science
+
+- You don't succeed as a scientist by getting papers *published*, you succeed by getting them *cited*. Having your work matter, matters.
+- Make the reader's job easy. If readers have to fight through bad writing, some will lose, and then you, the author, will be the greater looser. 
+- Most experienced writers get something down on paper as fast as they can (shitty first drafts). Then, as they rewrite an earlier draft, they more clearly understand their ideas.
+
+# Science Writing as Storytelling
+
+- Papers that get cited the most are those that tell the most compelling stories. Ensuring that science is used properly requires more than just presenting the data to decision makers.
+- Take your work as far as possible on the path from the raw data to understanding. If you don't provide understanding (or at least knowledge), readers will be left searching for it.
+- Explore the boundaries and limits of your data. Then, find the important story (the simple core). Let the story grow from the data, and then structure the paper to tell that story.
+
+# Making a Story Sticky
+
+- **S**imple: Simple ideas contain the core essence in a clear, compact way. They build off ideas that your readers already know. Example: Alligator meat tastes like chicken, but a little meatier. Simple however does not mean simplistic.
+- **U**nexpected: The writer's job is to find what is novel and highlight the unexpected elements. Frame new questions and look for new insights.
+- **C**oncrete: Simple has power, but concrete adds mass to that power. A balloon is simple, but you notice more when you get hit in the head by a brick.
+- **C**redible: Build a logical coherent that extends from past work into future directions. A break anywhere in that chain makes the whole endeavor lose credibility.
+- **E**motional: Curiosity is a fundamental emotion in science. Shift your focus from "What's my answer?" to "What's my question?".
+- **S**tories: To write a good paper, you need to think about internal structure and how to integrate story modules.
+
+# Story Structure
+
+- **O**pening, **C**hallenge, **A**ction, **R**esolution: The most slowly developing structure (in hourglass shape): Describe the larger problem. Narrow down to interesting questions. Present the research plan and results. In the resolution, provide conclusions and pick up the opening again. However, because things have changed, the "beginning" has moved (a story is a spiral). Requires a patient audience. Example: Tolkin's "The Lord of the Rings". 
+- **A**ction, **B**ackground, **D**evelopment, **C**limax, **E**nding: Starts the story faster by launching directly into the action. However, after the initial action, you need to back up and fill in the background. Example: James Bond movies.
+- **Lead**, **Development**, **Resolution**: The core of the story is in the first sentence, then the story is developed, and finally a resolution. Fast developing, but people will read to the end. Example: Papers for generalist journals.
+- **Lead**, **Development**: The fastest developing structure. The whole story is up front. People (don't have to) read to the end. Example: Proposals. 
+
+# The Opening
+
+- The opening establishes expectations. Identify the problem that drives the research. Don't overpromise (readers will feel cheated), don't underpromise (you will lose readers). The bottom of the hourglass should be the same width as the top.
+- Target the audience, identify their knowledge gap, build from their schemas. You can open in two steps: Start with an issue that engages your target audience (a wider group), but then modulate it to one you want to work with (a narrower group). 
+- Avoid misdirection (starting with a non-central issue) and no direction (stating only basics).
+
+# The Funnel: Connecting O and C
+
+- The main body of the introduction must narrow the opening (which identifies a large problem) to the challenge (which defines a specific question).
+- Avoid failing to identify the problem and offering a solution before defining a problem.
+- Avoid writing a pure literature review. Use known information only to identify boundaries of common knowledge. 
+
+# The Challenge
+
+- Formulate `to learn X, we did Y', with questions or additionally with hypothesis.
+
+# Action
+
+- First materials and methods (collapsed to the essential), then the results (inference vs. interpretation), then (distinguished from the results) the discussion.
+- Each section is a mini-story with its own structure and OCAR elements.
+
+# The Resolution
+
+- The resolution is your `take-home message', your strongest and most memorable words.
+- Summarize the key results, answer the opening question (create a simple message), and discuss the big picture (widening the hourglass).
+- You can resolve with a concrete, new question. Avoid a resolution that is undermining (don't end a paper by telling your readers what you didn't achieve) or distracting (don't put new information in the resolution).
+
+# Internal Structure
+
+- Think of OCAR as an *arc*: from the opening, over building and relieving tension, to the resolution. Inside the overall arc, there are small arcs nested within larger ones.
+- Arcs help to divide thoughts and place them into established frameworks. Each unit arc makes a single point and resolves. The link between arcs in a serial structure must be clear.
+- Tools for building arcs are subheads, paragraph breaks, and flag words such as *however* and *consequently*.
+
+# Paragraphs
+
+- Paragraphs are the smallest arcs.
+- Two structure types: point-first (LD) versus point-last (OCAR, LDR) paragraphs. The former is more common, the latter can be used to make a complex or critical story point.
+- Avoid paragraphs without point or coherent structure (can result from *curse of knowledge*). 
+
+# Sentences
+
+- The beginning (subject) of a sentence is what the reader interprets as the *topic*. It should be a familiar scheme and short. 
+- The verb should immediately follow the subject to avoid confusion.
+- The end of a sentence is the *stress*. Put the main message and new ideas here.
+- For long sentences, get to the topic quickly, then to the action, and add nuances at the end if needed.
+
+# Flow
+
+- Help readers not lose track at the end of sentences or paragraph breaks by having story flow.
+- Create flow by tying together the stress of the last sentence and the topic of the next one.
+- The opening of a paragraph sets its theme. As long as every sentence has a topic that fits into that theme, the paragraph will hang together.
+
+# Energizing Writing
+
+- Good stories are driven by action, and showing the action is the job of verbs, so choosing good verbs is important.
+- Use the active voice to be clear and direct. The passive voice can be used to switch stress and topic in a sentence, or to avoid naming the actor.
+- Avoid (fuzzy) verbs that say that something happened but not what, e.g. "income affects choosing this brand" versus "higher income increases the choice probability for this brand".
+- Avoid turning verbs or adjectives into nouns (nominalization), e.g. "they differed significantly" has more energy than "there was a difference with significance".
+
+# Words
+
+- Technical terms or abbreviations: putting them at the sentence beginning assumes that every reader understands them (risk of it appearing as jargon), putting them at the end defines them (risk of being ignorant), putting them in the middle as a sub-clause is a compromise (risk of people missing the term). If you err, err on the side of over-defining.
+- Avoid unnecessarily technical terms if possible.
+- Be aware of synonyms that are emotionally lighter and shorter, e.g. "demonstrate" vs "show".
+- If possible, use compound nouns and avoid phrases of prepositions. But avoid noun train confusion.
+
+# Condensing
+
+- Condense your paper, otherwise readers might get frustrated (by ideas that are buried in words or cumbersome sentences). But don't condense words that build flow and coherence.
+- Delete redundancies ("most, but not all" vs "most").
+- Delete obvious parts ("a pandemic that is global in scope" vs "a pandemic").
+- Delete adverbs and adjectives that don't add meaning ("the treatment dramatically increased" vs "the treatment increased"). However, they are sometimes necessary to clarify or define ("preliminary result" is a distinction from just "result", "final result" is not).
+- Avoid unnecessary metadiscourse (e.g. "we found that", "we argue that").
+- Avoid nominalized actions/verbs ("for the purpose of analyzing" vs "to analyze").
+
+# Putting it All Together: Real Editing
+
+- **S**tructure: get the structure of the story into shape, make the sentences fit together.
+- **C**larity: ensure that your ideas are clear and concrete.
+- **F**low: make the ideas flow, linking one thought to the next.
+- **L**anguage: make it sound good.
+- Repeat the steps. 
+- Read your writing out loud to hear awkward expressions, breaks in flow, and clunky words.
+
+# Dealing with Limitations
+
+- In the Introduction, be careful in framing the knowledge gap you will actually fill.
+- Address reader's concerns as soon as they arise: explain why your methods will answer your questions, how you get around limitations, why you are not doing expected things.
+- Don't undermine your work, start with the "but" (limitations) and end with a "yes" (what we learned).
+
+# Writing Global Science
+
+- Before submitting, make sure you know a journal's focus and intended audience.
+
+# Writing for the Public
+
+- When writing to the public (beyond a scientific community), offer more story/application and less complexity/jargon.
+- Message box, a graphical tool for laying out a story's essential elements: Put the issue and audience in the middle, the specific problem on top, the "so what?" on the right, the offered solution on the bottom, and the potential benefits to the left.
+
+# Resolution
+
+- Main message: as a scientist, you are a professional writer.
+- Science is about knowledge and understanding, not just data.
+- You don't succeed by getting papers published but by getting them cited.
+
+# Proposals
+
+- 5 important parts: What is it about? Why is it relevant? What's new? Why now? Why us?

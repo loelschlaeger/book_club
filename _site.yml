@@ -1,0 +1,9 @@
+name: "Book Club"
+navbar:
+  title: "Book Club"
+  left:
+    - text: "Writing Science"
+      href: writing_science.html 
+    - text: "Mastering Shiny"
+      href: mastering_shiny.html
+output_dir: "docs"
