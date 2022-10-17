@@ -28,28 +28,32 @@ knitr::asis_output('[Download PDF version](mastering_shiny.pdf)')
 
 1. Development
 
-    1. Type *shinyapp* in .R file to insert Shiny app snippet
+    - Type *shinyapp* in .R file to insert Shiny app snippet
    
-    2. Keyboard shortcut to run the app: *Ctrl+Shift+Enter*
+    - Keyboard shortcut to run the app: *Ctrl+Shift+Enter*
     
-    3. Relaunch app after every save with background job: 
+    - Relaunch app after every save with background job: 
     
-       - add script `shiny-run.R` to folder with `app.R`:
+       1. add script `shiny-run.R` to folder with `app.R`:
        
          ```{r, eval = FALSE}
          options(shiny.autoreload = TRUE)
          shiny::runApp()
          ```
          
-       - with active `shiny-run.R`, RStudio > Tools > Background Jobs > Start Background Job
+       2. with active `shiny-run.R`, RStudio > Tools > Background Jobs > Start Background Job
        
-       - copy URL from Jobs pane and run `rstudioapi::viewer("<URL>")`
+       3. copy URL from Jobs pane and run `rstudioapi::viewer("<URL>")`
 
 2. Debugging
 
-   1.
-
-3. Reprexes
+    - Shiny automatically prints the traceback to the console
+    
+    - Use interactive debugger with `browser()` in source
+    
+    - Use `message()` (with `glue::glue()`) or `str()` calls to understand when a part of the code is evaluated and to show values
+    
+    - Getting help: make a reprex (minimal reproducible example)
 
 # Layout, Themes, HTML
 
