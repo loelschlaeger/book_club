@@ -13,6 +13,7 @@
 
 <title>Mastering Shiny</title>
 
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -347,45 +348,62 @@ div.tocify {
 </div>
 
 
-<p><a href="https://mastering-shiny.org/">Wickham, H. (2021). Mastering shiny. O’Reilly Media, Inc.</a></p>
+<p><a href="https://mastering-shiny.org/">Wickham, H. (2021). Mastering
+shiny. O’Reilly Media, Inc.</a></p>
 <p><a href="mastering_shiny.pdf">Download PDF version</a></p>
-<div id="your-first-shiny-app" class="section level1">
-<h1><span class="header-section-number">1</span> Your First Shiny App</h1>
+<div id="your-first-shiny-app" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Your First Shiny
+App</h1>
 </div>
-<div id="basic-ui" class="section level1">
+<div id="basic-ui" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Basic UI</h1>
 </div>
-<div id="basic-reactivity" class="section level1">
+<div id="basic-reactivity" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> Basic Reactivity</h1>
 </div>
-<div id="case-study-er-injuries" class="section level1">
-<h1><span class="header-section-number">4</span> Case Study: ER Injuries</h1>
+<div id="case-study-er-injuries" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Case Study: ER
+Injuries</h1>
 </div>
-<div id="workflow" class="section level1">
+<div id="workflow" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Workflow</h1>
 <ol style="list-style-type: decimal">
 <li><p>Development</p>
-<ol style="list-style-type: decimal">
-<li><p>Type <em>shinyapp</em> in .R file to insert Shiny app snippet</p></li>
-<li><p>Keyboard shortcut to run the app: <em>Ctrl+Shift+Enter</em></p></li>
-<li><p>Relaunch app after every save with background job:</p>
 <ul>
-<li><p>add script <code>shiny-run.R</code> to folder with <code>app.R</code>:</p>
-<pre class="r"><code>options(shiny.autoreload = TRUE)
-shiny::runApp()</code></pre></li>
-<li><p>with active <code>shiny-run.R</code>, RStudio &gt; Tools &gt; Background Jobs &gt; Start Background Job</p></li>
-<li><p>copy URL from Jobs pane and run <code>rstudioapi::viewer("&lt;URL&gt;")</code></p></li>
-</ul></li>
-</ol></li>
-<li><p>Debugging</p>
+<li><p>Type <em>shinyapp</em> in .R file to insert Shiny app
+snippet</p></li>
+<li><p>Keyboard shortcut to run the app:
+<em>Ctrl+Shift+Enter</em></p></li>
+<li><p>Relaunch app after every save with background job:</p>
 <ol style="list-style-type: decimal">
-<li></li>
+<li>add script <code>shiny-run.R</code> to folder with
+<code>app.R</code>:</li>
+</ol>
+<pre class="r"><code>options(shiny.autoreload = TRUE)
+shiny::runApp()</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>with active <code>shiny-run.R</code>, RStudio &gt; Tools &gt;
+Background Jobs &gt; Start Background Job</p></li>
+<li><p>copy URL from Jobs pane and run
+<code>rstudioapi::viewer("&lt;URL&gt;")</code></p></li>
 </ol></li>
-<li><p>Reprexes</p></li>
+</ul></li>
+<li><p>Debugging</p>
+<ul>
+<li><p>Shiny automatically prints the traceback to the console</p></li>
+<li><p>Use interactive debugger with <code>browser()</code> in
+source</p></li>
+<li><p>Use <code>message()</code> (with <code>glue::glue()</code>) or
+<code>str()</code> calls to understand when a part of the code is
+evaluated and to show values</p></li>
+<li><p>Getting help: make a reprex (minimal reproducible
+example)</p></li>
+</ul></li>
 </ol>
 </div>
-<div id="layout-themes-html" class="section level1">
-<h1><span class="header-section-number">6</span> Layout, Themes, HTML</h1>
+<div id="layout-themes-html" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Layout, Themes,
+HTML</h1>
 </div>
 
 
