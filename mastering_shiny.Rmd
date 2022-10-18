@@ -64,3 +64,13 @@ use `nearPoints(<dataset>, input$plot_click)` to get points near to the click
 can also use `dblclick`, `hover`, and `brush` (together with `brushedPoints()` helper) argument
 
 can modify a plot interactively with `reactiveVal()`
+
+# User Feedback
+
+# Uploads and Downloads
+
+# Dynamic UI
+
+# Bookmarking
+
+# Tidy Evaluation
