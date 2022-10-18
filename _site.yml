@@ -1,4 +1,3 @@
-name: "Book Club"
 navbar:
   title: "Book Club"
   left:
@@ -7,3 +6,10 @@ navbar:
     - text: "Mastering Shiny"
       href: mastering_shiny.html
 output_dir: "docs"
+output:
+  html_document:
+    number_sections: true
+    toc: true
+    toc_float: true
+    includes:
+      in_header: header.html

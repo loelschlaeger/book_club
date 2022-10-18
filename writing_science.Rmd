@@ -1,10 +1,6 @@
 ---
 title: "Writing Science"
 output:
-  html_document:
-    number_sections: true
-    toc: true
-    toc_float: true
   pdf_document:
     number_sections: true
     latex_engine: pdflatex
@@ -13,7 +9,7 @@ output:
 [Schimel, J. (2012). Writing science: how to write papers that get cited and proposals that get funded. Oxford University Press.](https://katalogplus.ub.uni-bielefeld.de/Record/991022342879706442)
 
 ```{r, eval=knitr::is_html_output(), echo=FALSE}
-knitr::asis_output('[Download PDF version](writing_science.pdf)')
+knitr::asis_output('[Download summary](writing_science.pdf)')
 ```
 
 # Writing in Science
@@ -43,6 +39,7 @@ knitr::asis_output('[Download PDF version](writing_science.pdf)')
 - **A**ction, **B**ackground, **D**evelopment, **C**limax, **E**nding: Starts the story faster by launching directly into the action. However, after the initial action, you need to back up and fill in the background. Example: James Bond movies.
 - **Lead**, **Development**, **Resolution**: The core of the story is in the first sentence, then the story is developed, and finally a resolution. Fast developing, but people will read to the end. Example: Papers for generalist journals.
 - **Lead**, **Development**: The fastest developing structure. The whole story is up front. People (don't have to) read to the end. Example: Proposals. 
+  - 5 important parts in proposals: What is it about? Why is it relevant? What's new? Why now? Why us?
 
 # The Opening
 
@@ -148,7 +145,3 @@ knitr::asis_output('[Download PDF version](writing_science.pdf)')
 - Main message: as a scientist, you are a professional writer.
 - Science is about knowledge and understanding, not just data.
 - You don't succeed by getting papers published but by getting them cited.
-
-# Proposals
-
-- 5 important parts: What is it about? Why is it relevant? What's new? Why now? Why us?

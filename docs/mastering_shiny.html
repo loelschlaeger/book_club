@@ -35,6 +35,13 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -404,6 +411,19 @@ example)</p></li>
 <div id="layout-themes-html" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Layout, Themes,
 HTML</h1>
+</div>
+<div id="graphics" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Graphics</h1>
+<p>interactive graphics
+<code>plotOutput("id", click = "plot_click")</code> in ui makes
+coordinates <code>input$plot_click</code> available in server</p>
+<p>use <code>req()</code> to avoid app action before user input</p>
+<p>use <code>nearPoints(&lt;dataset&gt;, input$plot_click)</code> to get
+points near to the click</p>
+<p>can also use <code>dblclick</code>, <code>hover</code>, and
+<code>brush</code> (together with <code>brushedPoints()</code> helper)
+argument</p>
+<p>can modify a plot interactively with <code>reactiveVal()</code></p>
 </div>
 
 

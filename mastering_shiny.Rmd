@@ -1,10 +1,6 @@
 ---
 title: "Mastering Shiny"
 output:
-  html_document:
-    number_sections: true
-    toc: true
-    toc_float: true
   pdf_document:
     number_sections: true
     latex_engine: pdflatex
@@ -13,7 +9,7 @@ output:
 [Wickham, H. (2021). Mastering shiny. O'Reilly Media, Inc.](https://mastering-shiny.org/)
 
 ```{r, eval=knitr::is_html_output(), echo=FALSE}
-knitr::asis_output('[Download PDF version](mastering_shiny.pdf)')
+knitr::asis_output('[Download summary](mastering_shiny.pdf)')
 ```
 
 # Your First Shiny App
@@ -57,6 +53,14 @@ knitr::asis_output('[Download PDF version](mastering_shiny.pdf)')
 
 # Layout, Themes, HTML
 
+# Graphics 
 
+interactive graphics `plotOutput("id", click = "plot_click")` in ui makes coordinates `input$plot_click` available in server
 
+use `req()` to avoid app action before user input
 
+use `nearPoints(<dataset>, input$plot_click)` to get points near to the click
+
+can also use `dblclick`, `hover`, and `brush` (together with `brushedPoints()` helper) argument
+
+can modify a plot interactively with `reactiveVal()`

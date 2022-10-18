@@ -1,5 +1,8 @@
 ---
 title: "Book Club"
+output:
+  html_document:
+    toc: false
 ---
 
 Rules:
