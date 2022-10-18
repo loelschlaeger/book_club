@@ -5,6 +5,10 @@ navbar:
       href: writing_science.html 
     - text: "Mastering Shiny"
       href: mastering_shiny.html
+  right:
+    - icon: fa-github
+      text: "Source"
+      href: https://github.com/loelschlaeger/book_club
 output_dir: "docs"
 output:
   html_document:
