@@ -13,7 +13,6 @@
 
 <title>Mastering Shiny</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -363,172 +362,109 @@ div.tocify {
 </div>
 
 
-<p><a href="https://mastering-shiny.org/">Wickham, H. (2021). Mastering
-shiny. O’Reilly Media, Inc.</a></p>
+<p><a href="https://mastering-shiny.org/">Wickham, H. (2021). Mastering shiny. O’Reilly Media, Inc.</a></p>
 <p><a href="mastering_shiny.pdf">Download summary</a></p>
-<div id="your-first-shiny-app" class="section level1" number="1">
-<h1><span class="header-section-number">1</span> Your First Shiny
-App</h1>
+<div id="your-first-shiny-app" class="section level1">
+<h1><span class="header-section-number">1</span> Your First Shiny App</h1>
 <p>For a basic app, create file <code>app.R</code> and add</p>
 <ol style="list-style-type: decimal">
 <li><code>library(shiny)</code> to load the shiny package</li>
-<li><code>ui &lt;- fluidPage("Hello, world!")</code> to define the user
-interface (UI)</li>
-<li><code>server &lt;- function(input, output, session)</code> to define
-the server function</li>
-<li><code>shinyApp(ui, server)</code> to construct and start the
-application</li>
+<li><code>ui &lt;- fluidPage("Hello, world!")</code> to define the user interface (UI)</li>
+<li><code>server &lt;- function(input, output, session)</code> to define the server function</li>
+<li><code>shinyApp(ui, server)</code> to construct and start the application</li>
 </ol>
 <p>To run the app, source the document (there are other options).</p>
-<p>To stop the document, activate the console window and press
-<em>Esc</em> (there are other options).</p>
+<p>To stop the document, activate the console window and press <em>Esc</em> (there are other options).</p>
 </div>
-<div id="basic-ui" class="section level1" number="2">
+<div id="basic-ui" class="section level1">
 <h1><span class="header-section-number">2</span> Basic UI</h1>
 <p>The UI consists of inputs and outputs.</p>
-<div id="inputs" class="section level2" number="2.1">
+<div id="inputs" class="section level2">
 <h2><span class="header-section-number">2.1</span> Inputs</h2>
-<p>Insert input controls to UI by adding <code>{type}Input()</code>
-functions to <code>ui</code>:</p>
+<p>Insert input controls to UI by adding <code>{type}Input()</code> functions to <code>ui</code>:</p>
 <ul>
-<li>free text inputs with <code>textInput()</code>,
-<code>passwortInput()</code>, <code>textAreaInput()</code></li>
-<li>numeric inputs with <code>numericInput()</code>,
-<code>sliderInput()</code></li>
-<li>dates with <code>dateInput()</code>,
-<code>dateRangeInput()</code></li>
-<li>limited choices with <code>selectInput()</code>,
-<code>radioButtons()</code>, <code>checkboxGroupInput()</code></li>
+<li>free text inputs with <code>textInput()</code>, <code>passwortInput()</code>, <code>textAreaInput()</code></li>
+<li>numeric inputs with <code>numericInput()</code>, <code>sliderInput()</code></li>
+<li>dates with <code>dateInput()</code>, <code>dateRangeInput()</code></li>
+<li>limited choices with <code>selectInput()</code>, <code>radioButtons()</code>, <code>checkboxGroupInput()</code></li>
 <li>file uploads with <code>fileInput()</code></li>
-<li>action buttons with <code>actionButton()</code>,
-<code>actionLink()</code></li>
+<li>action buttons with <code>actionButton()</code>, <code>actionLink()</code></li>
 </ul>
-<p>All input functions have the same first argument
-<code>inputId</code>. If some input function has ID <code>name</code>,
-than the input can be accessed in the server with
-<code>input$name</code>. Input functions have additional (unique)
-arguments to adjust their appearance.</p>
+<p>All input functions have the same first argument <code>inputId</code>. If some input function has ID <code>name</code>, than the input can be accessed in the server with <code>input$name</code>. Input functions have additional (unique) arguments to adjust their appearance.</p>
 </div>
-<div id="outputs" class="section level2" number="2.2">
+<div id="outputs" class="section level2">
 <h2><span class="header-section-number">2.2</span> Outputs</h2>
-<p>Outputs in the UI create placeholders that are later filled by the
-server function. Like inputs, their first argument is always an ID
-<code>outputId</code>. If some output function has ID <code>plot</code>,
-than the output can be accessed in the server with
-<code>output$plot</code>.</p>
-<p>Insert output placeholders to UI by adding
-<code>{type}Output()</code> functions to <code>ui</code>. Each
-<code>{type}Output()</code> function is coupled with a
-<code>render{Type}</code> function in <code>server</code>:</p>
+<p>Outputs in the UI create placeholders that are later filled by the server function. Like inputs, their first argument is always an ID <code>outputId</code>. If some output function has ID <code>plot</code>, than the output can be accessed in the server with <code>output$plot</code>.</p>
+<p>Insert output placeholders to UI by adding <code>{type}Output()</code> functions to <code>ui</code>. Each <code>{type}Output()</code> function is coupled with a <code>render{Type}</code> function in <code>server</code>:</p>
 <ul>
-<li>text outputs with <code>textOutput()</code>
-(<code>renderText()</code>),</li>
-<li>R code output with <code>verbatimTextOutput()</code>
-(<code>renderPrint()</code>)</li>
-<li>static tables with <code>tableOutput()</code>
-(<code>renderTable()</code>)</li>
-<li>dynamic tables with <code>dataTableOutput()</code>
-(<code>renderDataTable()</code>)</li>
-<li>plots with <code>plotOutput()</code>
-(<code>renderPlot()</code>)</li>
-<li>images with <code>imageOutput()</code>
-(<code>renderImage()</code>)</li>
+<li>text outputs with <code>textOutput()</code> (<code>renderText()</code>),</li>
+<li>R code output with <code>verbatimTextOutput()</code> (<code>renderPrint()</code>)</li>
+<li>static tables with <code>tableOutput()</code> (<code>renderTable()</code>)</li>
+<li>dynamic tables with <code>dataTableOutput()</code> (<code>renderDataTable()</code>)</li>
+<li>plots with <code>plotOutput()</code> (<code>renderPlot()</code>)</li>
+<li>images with <code>imageOutput()</code> (<code>renderImage()</code>)</li>
 </ul>
 </div>
 </div>
-<div id="basic-reactivity" class="section level1" number="3">
+<div id="basic-reactivity" class="section level1">
 <h1><span class="header-section-number">3</span> Basic Reactivity</h1>
-<p>To connect inputs with outputs, Shiny uses a concept called
-<em>reactive expressions</em>.</p>
-<div id="reactive-expressions" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> Reactive
-Expressions</h2>
-<p>Reactive expressions mean: when an input changes, all related outputs
-automatically update. Shiny knows when the update should be run. The
-code
-<code>output$greeting &lt;- renderText(paste("hi",input$name))</code>
-informs Shiny how it could update the greeting if it needs to (e.g., if
-<code>input$name</code> changed). With this concept, code is no longer
-executed from top to bottom, but follows a graph of dependencies, which
-describes how inputs and outputs are connected.</p>
+<p>To connect inputs with outputs, Shiny uses a concept called <em>reactive expressions</em>.</p>
+<div id="reactive-expressions" class="section level2">
+<h2><span class="header-section-number">3.1</span> Reactive Expressions</h2>
+<p>Reactive expressions mean: when an input changes, all related outputs automatically update. Shiny knows when the update should be run. The code <code>output$greeting &lt;- renderText(paste("hi",input$name))</code> informs Shiny how it could update the greeting if it needs to (e.g., if <code>input$name</code> changed). With this concept, code is no longer executed from top to bottom, but follows a graph of dependencies, which describes how inputs and outputs are connected.</p>
 </div>
-<div id="modularity" class="section level2" number="3.2">
+<div id="modularity" class="section level2">
 <h2><span class="header-section-number">3.2</span> Modularity</h2>
-<p>However, Shiny updates outputs always as a whole. This can lead to
-undesired effects:</p>
+<p>However, Shiny updates outputs always as a whole. This can lead to undesired effects:</p>
 <pre class="r"><code>output$plot &lt;- renderPlot({
   x &lt;- rnorm(n = input$n)
   plot(x, xlim = input$range)
 })</code></pre>
-<p>The random vector <code>x</code> is drawn again, when
-<code>input$range</code> changes. Better put the computation of
-<code>x</code> into a separate reactive environment. Now the value of
-<code>x</code> must be accessed via <code>x()</code>:</p>
+<p>The random vector <code>x</code> is drawn again, when <code>input$range</code> changes. Better put the computation of <code>x</code> into a separate reactive environment. Now the value of <code>x</code> must be accessed via <code>x()</code>:</p>
 <pre class="r"><code>x &lt;- reactive(rnorm(n = input$n))
 output$plot &lt;- renderPlot(plot(x(), xlim = input$range))</code></pre>
-<p>If <code>x</code> should be drawn after an event (e.g., the user
-clicked a button), but not when <code>input$n</code> changes, use
-<code>x &lt;- eventReactive(input$simulate, rnorm(n = input$n))</code>.</p>
+<p>If <code>x</code> should be drawn after an event (e.g., the user clicked a button), but not when <code>input$n</code> changes, use <code>x &lt;- eventReactive(input$simulate, rnorm(n = input$n))</code>.</p>
 </div>
 </div>
-<div id="case-study-er-injuries" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Case Study: ER
-Injuries</h1>
-<p>Development of a richer Shiny app with the concepts seen so far. <a
-href="https://hadley.shinyapps.io/ms-narrative">Demo</a> <a
-href="https://github.com/hadley/mastering-shiny/tree/master/neiss/narrative.R">Source</a></p>
+<div id="case-study-er-injuries" class="section level1">
+<h1><span class="header-section-number">4</span> Case Study: ER Injuries</h1>
+<p>Development of a richer Shiny app with the concepts seen so far. <a href="https://hadley.shinyapps.io/ms-narrative">Demo</a> <a href="https://github.com/hadley/mastering-shiny/tree/master/neiss/narrative.R">Source</a></p>
 </div>
-<div id="workflow" class="section level1" number="5">
+<div id="workflow" class="section level1">
 <h1><span class="header-section-number">5</span> Workflow</h1>
 <blockquote>
-<p>One of the reasons that I’ve been able to accomplish so much is that
-I devote time to analysing and improving my workflow. I highly encourage
-you to do the same! – Hadley Wickham</p>
+<p>One of the reasons that I’ve been able to accomplish so much is that I devote time to analysing and improving my workflow. I highly encourage you to do the same! – Hadley Wickham</p>
 </blockquote>
-<div id="development" class="section level2" number="5.1">
+<div id="development" class="section level2">
 <h2><span class="header-section-number">5.1</span> Development</h2>
 <ul>
-<li><p>Type <em>shinyapp</em> in .R file and use <em>Tab</em> to insert
-Shiny app snippet</p></li>
-<li><p>Keyboard shortcut to run the app:
-<em>Ctrl+Shift+Enter</em></p></li>
+<li><p>Type <em>shinyapp</em> in .R file and use <em>Tab</em> to insert Shiny app snippet</p></li>
+<li><p>Keyboard shortcut to run the app: <em>Ctrl+Shift+Enter</em></p></li>
 <li><p>Relaunch app after every save with background job:</p>
 <ol style="list-style-type: decimal">
-<li>add script <code>shiny-run.R</code> to folder with
-<code>app.R</code>:</li>
+<li>add script <code>shiny-run.R</code> to folder with <code>app.R</code>:</li>
 </ol>
 <pre class="r"><code>options(shiny.autoreload = TRUE)
 shiny::runApp()</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li><p>with active <code>shiny-run.R</code>, RStudio &gt; Tools &gt;
-Background Jobs &gt; Start Background Job</p></li>
-<li><p>copy URL from Jobs pane and run
-<code>rstudioapi::viewer("&lt;URL&gt;")</code></p></li>
+<li><p>with active <code>shiny-run.R</code>, RStudio &gt; Tools &gt; Background Jobs &gt; Start Background Job</p></li>
+<li><p>copy URL from Jobs pane and run <code>rstudioapi::viewer("&lt;URL&gt;")</code></p></li>
 </ol></li>
 </ul>
 </div>
-<div id="debugging" class="section level2" number="5.2">
+<div id="debugging" class="section level2">
 <h2><span class="header-section-number">5.2</span> Debugging</h2>
 <ul>
 <li><p>Shiny automatically prints the traceback to the console.</p></li>
-<li><p>Use <code>message()</code>, <code>str()</code> calls to
-understand when a part of the code is evaluated and to show
-values.</p></li>
-<li><p>To access values of reactive expressions, use interactive
-debugger with <code>browser()</code> in source.</p></li>
-<li><p>Getting help: first make a reprex (<em>minimal</em>
-<em>reproducible</em> example).</p></li>
+<li><p>Use <code>message()</code>, <code>str()</code> calls to understand when a part of the code is evaluated and to show values.</p></li>
+<li><p>To access values of reactive expressions, use interactive debugger with <code>browser()</code> in source.</p></li>
+<li><p>Getting help: first make a reprex (<em>minimal</em> <em>reproducible</em> example).</p></li>
 </ul>
 </div>
 </div>
-<div id="layout-themes-html" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Layout, Themes,
-HTML</h1>
-<p>The input and output functions just return HTML, which the developer
-can create themself, but Shiny offers helper functions. The
-<code>fluidPage()</code> provides basic HTML for the UI (alternatives
-are <code>fixedPage()</code> and <code>fillPage()</code>). Other
-functions modify the visual appearance:</p>
+<div id="layout-themes-html" class="section level1">
+<h1><span class="header-section-number">6</span> Layout, Themes, HTML</h1>
+<p>The input and output functions just return HTML, which the developer can create themself, but Shiny offers helper functions. The <code>fluidPage()</code> provides basic HTML for the UI (alternatives are <code>fixedPage()</code> and <code>fillPage()</code>). Other functions modify the visual appearance:</p>
 <ul>
 <li><p>App with sidebar (most common app design):</p>
 <pre class="r"><code>ui &lt;- fluidPage(
@@ -555,8 +491,7 @@ functions modify the visual appearance:</p>
     )
   )
 )</code></pre></li>
-<li><p>Tabsets (for multipage layout, alternatives are Navlists and
-Navbars):</p>
+<li><p>Tabsets (for multipage layout, alternatives are Navlists and Navbars):</p>
 <pre class="r"><code>ui &lt;- fluidPage(
   tabsetPanel(
     tabPanel(&quot;Import data&quot;, 
@@ -568,42 +503,24 @@ Navbars):</p>
   )
 )</code></pre></li>
 </ul>
-<p>Shiny uses the Bootstrap CSS and javascript style framework. The
-style can be modified via <code>theme = bslib::bs_theme()</code> as
-argument to <code>fluidPage()</code>. Use
-<code>bslib::bs_theme_preview(theme)</code> to preview the theme. Use
-<code>thematic::thematic_shiny()</code> inside <code>server()</code>
-adapt the theme to plots.</p>
+<p>Shiny uses the Bootstrap CSS and javascript style framework. The style can be modified via <code>theme = bslib::bs_theme()</code> as argument to <code>fluidPage()</code>. Use <code>bslib::bs_theme_preview(theme)</code> to preview the theme. Use <code>thematic::thematic_shiny()</code> inside <code>server()</code> adapt the theme to plots.</p>
 </div>
-<div id="graphics" class="section level1" number="7">
+<div id="graphics" class="section level1">
 <h1><span class="header-section-number">7</span> Graphics</h1>
-<p><code>plotOutput()</code> can serve as an input that tracks pointer
-events, leading to interactive plots. Add the following arguments:</p>
+<p><code>plotOutput()</code> can serve as an input that tracks pointer events, leading to interactive plots. Add the following arguments:</p>
 <ul>
-<li>click: <code>plotOutput("id", click = "plot_click")</code> makes
-coordinates <code>input$plot_click</code> available in
-<code>server()</code> (e.g., use
-<code>nearPoints(&lt;dataset&gt;, input$plot_click)</code> to get data
-points near to the click)</li>
-<li>double-click: <code>plotOutput("id", dblclick = "plot_click")</code>
-(similar to <code>click</code>)</li>
-<li>hover: <code>plotOutput("id", hover = "plot_click")</code> (similar
-to <code>click</code>)</li>
-<li>rectangular selection tool:
-<code>plotOutput("id", brush = "plot_brush")</code> makes coordinates
-<code>input$plot_brush</code> available (e.g., use
-<code>brushedPoints(&lt;dataset&gt;, input$plot_brush)</code> to get the
-selected data points)</li>
+<li>click: <code>plotOutput("id", click = "plot_click")</code> makes coordinates <code>input$plot_click</code> available in <code>server()</code> (e.g., use <code>nearPoints(&lt;dataset&gt;, input$plot_click)</code> to get data points near to the click)</li>
+<li>double-click: <code>plotOutput("id", dblclick = "plot_click")</code> (similar to <code>click</code>)</li>
+<li>hover: <code>plotOutput("id", hover = "plot_click")</code> (similar to <code>click</code>)</li>
+<li>rectangular selection tool: <code>plotOutput("id", brush = "plot_brush")</code> makes coordinates <code>input$plot_brush</code> available (e.g., use <code>brushedPoints(&lt;dataset&gt;, input$plot_brush)</code> to get the selected data points)</li>
 </ul>
 </div>
-<div id="user-feedback" class="section level1" number="8">
+<div id="user-feedback" class="section level1">
 <h1><span class="header-section-number">8</span> User Feedback</h1>
-<p>Thoughtful communication about what’s happening with the app can have
-a huge impact on the quality of the user experience.</p>
-<div id="validation" class="section level2" number="8.1">
+<p>Thoughtful communication about what’s happening with the app can have a huge impact on the quality of the user experience.</p>
+<div id="validation" class="section level2">
 <h2><span class="header-section-number">8.1</span> Validation</h2>
-<p>Use the {shinyFeedback} package to put feedback next to an invalid
-input:</p>
+<p>Use the {shinyFeedback} package to put feedback next to an invalid input:</p>
 <pre class="r"><code>ui &lt;- fluidPage(
   shiny::useShinyFeedback(),
   numericInput(&quot;n&quot;, &quot;n&quot;, value = 10)
@@ -615,24 +532,15 @@ server &lt;- function(input, output, session) {
     sqrt(input$n)
   })
 }</code></pre>
-<p>The function <code>req()</code> stops bad or missing inputs from
-triggering reactive changes. Alternatives to
-<code>feedbackWarning()</code> are <code>feedback()</code>,
-<code>feedbackDanger()</code>, and <code>feedbackSuccess()</code>.
-Alternative to {shinyFeedback} is the Shiny built-in function
-<code>validate()</code>.</p>
+<p>The function <code>req()</code> stops bad or missing inputs from triggering reactive changes. Alternatives to <code>feedbackWarning()</code> are <code>feedback()</code>, <code>feedbackDanger()</code>, and <code>feedbackSuccess()</code>. Alternative to {shinyFeedback} is the Shiny built-in function <code>validate()</code>.</p>
 </div>
-<div id="notifications" class="section level2" number="8.2">
+<div id="notifications" class="section level2">
 <h2><span class="header-section-number">8.2</span> Notifications</h2>
-<p>To let the user know what’s happening, display a notification via
-<code>showNotification("&lt;text&gt;")</code> inside
-<code>server()</code>. It can be transient, removed on completion, or
-progressively updated.</p>
+<p>To let the user know what’s happening, display a notification via <code>showNotification("&lt;text&gt;")</code> inside <code>server()</code>. It can be transient, removed on completion, or progressively updated.</p>
 </div>
-<div id="progress-bars" class="section level2" number="8.3">
+<div id="progress-bars" class="section level2">
 <h2><span class="header-section-number">8.3</span> Progress Bars</h2>
-<p>Progress bars help the user to estimate the time to completion.
-Inside <code>server()</code>:</p>
+<p>Progress bars help the user to estimate the time to completion. Inside <code>server()</code>:</p>
 <pre class="r"><code>eventReactive(input$go, {
   withProgress(message = &quot;Computing random number&quot;, {
     for (i in 1:steps) {
@@ -641,30 +549,23 @@ Inside <code>server()</code>:</p>
     }
   })
 })</code></pre>
-<p>The <code>eventReactive()</code> environment is not required, but it
-is good practice to allow the user to control when the time consuming
-task starts. The {waiter} package offers more visual options (like,
-e.g., spinners).</p>
+<p>The <code>eventReactive()</code> environment is not required, but it is good practice to allow the user to control when the time consuming task starts. The {waiter} package offers more visual options (like, e.g., spinners).</p>
 </div>
-<div id="dialoges" class="section level2" number="8.4">
+<div id="dialoges" class="section level2">
 <h2><span class="header-section-number">8.4</span> Dialoges</h2>
-<p>Create dialog boxes with <code>modalDialog()</code> to get, e.g.,
-explicit confirmation from user for a potentially destructive action.
-Use <code>showModal()</code> and <code>removeModal()</code> to show and
-remove the dialog, respectively.</p>
+<p>Create dialog boxes with <code>modalDialog()</code> to get, e.g., explicit confirmation from user for a potentially destructive action. Use <code>showModal()</code> and <code>removeModal()</code> to show and remove the dialog, respectively.</p>
 </div>
 </div>
-<div id="uploads-and-downloads" class="section level1" number="9">
-<h1><span class="header-section-number">9</span> Uploads and
-Downloads</h1>
+<div id="uploads-and-downloads" class="section level1">
+<h1><span class="header-section-number">9</span> Uploads and Downloads</h1>
 </div>
-<div id="dynamic-ui" class="section level1" number="10">
+<div id="dynamic-ui" class="section level1">
 <h1><span class="header-section-number">10</span> Dynamic UI</h1>
 </div>
-<div id="bookmarking" class="section level1" number="11">
+<div id="bookmarking" class="section level1">
 <h1><span class="header-section-number">11</span> Bookmarking</h1>
 </div>
-<div id="tidy-evaluation" class="section level1" number="12">
+<div id="tidy-evaluation" class="section level1">
 <h1><span class="header-section-number">12</span> Tidy Evaluation</h1>
 </div>
 
