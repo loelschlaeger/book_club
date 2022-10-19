@@ -562,6 +562,18 @@ server &lt;- function(input, output, session) {
 </div>
 <div id="dynamic-ui" class="section level1">
 <h1><span class="header-section-number">10</span> Dynamic UI</h1>
+<p>The UI can be changed with code from <code>server()</code>.</p>
+<div id="updating-inputs" class="section level2">
+<h2><span class="header-section-number">10.1</span> Updating Inputs</h2>
+<p>Every input control <code>{type}Input()</code> is paired with an update function <code>updateTextInput()</code> that allows to modify the control after it has been created, e.g., to reset parameters back to their initial values, or to hierarchically create select boxes. There are two issues:</p>
+<ul>
+<li>Modifications of UI take some time, use <code>freezeReactiveValue()</code> to tell all downstream calculations that an input value is currently stale.</li>
+<li>Be aware of circular references.</li>
+</ul>
+</div>
+<div id="dynamic-visibility" class="section level2">
+<h2><span class="header-section-number">10.2</span> Dynamic Visibility</h2>
+</div>
 </div>
 <div id="bookmarking" class="section level1">
 <h1><span class="header-section-number">11</span> Bookmarking</h1>
