@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Writing Science</title>
+
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Book Club</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="writing_science.html">Writing Science</a>
+</li>
+<li>
+  <a href="mastering_shiny.html">Mastering Shiny</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/loelschlaeger/book_club">
+    <span class="fa fa-github"></span>
+     
+    Source
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Writing Science</h1>
+
+</div>
+
+
+<p><a
+href="https://katalogplus.ub.uni-bielefeld.de/Record/991022342879706442">Schimel,
+J. (2012). Writing science: how to write papers that get cited and
+proposals that get funded. Oxford University Press.</a></p>
+<p><a href="writing_science.pdf">Download summary</a></p>
+<div id="writing-in-science" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Writing in Science</h1>
+<ul>
+<li>You don’t succeed as a scientist by getting papers
+<em>published</em>, you succeed by getting them <em>cited</em>. Having
+your work matter, matters.</li>
+<li>Make the reader’s job easy. If readers have to fight through bad
+writing, some will lose, and then you, the author, will be the greater
+looser.</li>
+<li>Most experienced writers get something down on paper as fast as they
+can (shitty first drafts). Then, as they rewrite an earlier draft, they
+more clearly understand their ideas.</li>
+</ul>
+</div>
+<div id="science-writing-as-storytelling" class="section level1"
+number="2">
+<h1><span class="header-section-number">2</span> Science Writing as
+Storytelling</h1>
+<ul>
+<li>Papers that get cited the most are those that tell the most
+compelling stories. Ensuring that science is used properly requires more
+than just presenting the data to decision makers.</li>
+<li>Take your work as far as possible on the path from the raw data to
+understanding. If you don’t provide understanding (or at least
+knowledge), readers will be left searching for it.</li>
+<li>Explore the boundaries and limits of your data. Then, find the
+important story (the simple core). Let the story grow from the data, and
+then structure the paper to tell that story.</li>
+</ul>
+</div>
+<div id="making-a-story-sticky" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Making a Story
+Sticky</h1>
+<ul>
+<li><strong>S</strong>imple: Simple ideas contain the core essence in a
+clear, compact way. They build off ideas that your readers already know.
+Example: Alligator meat tastes like chicken, but a little meatier.
+Simple however does not mean simplistic.</li>
+<li><strong>U</strong>nexpected: The writer’s job is to find what is
+novel and highlight the unexpected elements. Frame new questions and
+look for new insights.</li>
+<li><strong>C</strong>oncrete: Simple has power, but concrete adds mass
+to that power. A balloon is simple, but you notice more when you get hit
+in the head by a brick.</li>
+<li><strong>C</strong>redible: Build a logical coherent that extends
+from past work into future directions. A break anywhere in that chain
+makes the whole endeavor lose credibility.</li>
+<li><strong>E</strong>motional: Curiosity is a fundamental emotion in
+science. Shift your focus from “What’s my answer?” to “What’s my
+question?”.</li>
+<li><strong>S</strong>tories: To write a good paper, you need to think
+about internal structure and how to integrate story modules.</li>
+</ul>
+</div>
+<div id="story-structure" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Story Structure</h1>
+<ul>
+<li><strong>O</strong>pening, <strong>C</strong>hallenge,
+<strong>A</strong>ction, <strong>R</strong>esolution: The most slowly
+developing structure (in hourglass shape): Describe the larger problem.
+Narrow down to interesting questions. Present the research plan and
+results. In the resolution, provide conclusions and pick up the opening
+again. However, because things have changed, the “beginning” has moved
+(a story is a spiral). Requires a patient audience. Example: Tolkin’s
+“The Lord of the Rings”.</li>
+<li><strong>A</strong>ction, <strong>B</strong>ackground,
+<strong>D</strong>evelopment, <strong>C</strong>limax,
+<strong>E</strong>nding: Starts the story faster by launching directly
+into the action. However, after the initial action, you need to back up
+and fill in the background. Example: James Bond movies.</li>
+<li><strong>Lead</strong>, <strong>Development</strong>,
+<strong>Resolution</strong>: The core of the story is in the first
+sentence, then the story is developed, and finally a resolution. Fast
+developing, but people will read to the end. Example: Papers for
+generalist journals.</li>
+<li><strong>Lead</strong>, <strong>Development</strong>: The fastest
+developing structure. The whole story is up front. People (don’t have
+to) read to the end. Example: Proposals.
+<ul>
+<li>5 important parts in proposals: What is it about? Why is it
+relevant? What’s new? Why now? Why us?</li>
+</ul></li>
+</ul>
+</div>
+<div id="the-opening" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> The Opening</h1>
+<ul>
+<li>The opening establishes expectations. Identify the problem that
+drives the research. Don’t overpromise (readers will feel cheated),
+don’t underpromise (you will lose readers). The bottom of the hourglass
+should be the same width as the top.</li>
+<li>Target the audience, identify their knowledge gap, build from their
+schemas. You can open in two steps: Start with an issue that engages
+your target audience (a wider group), but then modulate it to one you
+want to work with (a narrower group).</li>
+<li>Avoid misdirection (starting with a non-central issue) and no
+direction (stating only basics).</li>
+</ul>
+</div>
+<div id="the-funnel-connecting-o-and-c" class="section level1"
+number="6">
+<h1><span class="header-section-number">6</span> The Funnel: Connecting
+O and C</h1>
+<ul>
+<li>The main body of the introduction must narrow the opening (which
+identifies a large problem) to the challenge (which defines a specific
+question).</li>
+<li>Avoid failing to identify the problem and offering a solution before
+defining a problem.</li>
+<li>Avoid writing a pure literature review. Use known information only
+to identify boundaries of common knowledge.</li>
+</ul>
+</div>
+<div id="the-challenge" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> The Challenge</h1>
+<ul>
+<li>Formulate `to learn X, we did Y’, with questions or additionally
+with hypothesis.</li>
+</ul>
+</div>
+<div id="action" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Action</h1>
+<ul>
+<li>First materials and methods (collapsed to the essential), then the
+results (inference vs. interpretation), then (distinguished from the
+results) the discussion.</li>
+<li>Each section is a mini-story with its own structure and OCAR
+elements.</li>
+</ul>
+</div>
+<div id="the-resolution" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> The Resolution</h1>
+<ul>
+<li>The resolution is your `take-home message’, your strongest and most
+memorable words.</li>
+<li>Summarize the key results, answer the opening question (create a
+simple message), and discuss the big picture (widening the
+hourglass).</li>
+<li>You can resolve with a concrete, new question. Avoid a resolution
+that is undermining (don’t end a paper by telling your readers what you
+didn’t achieve) or distracting (don’t put new information in the
+resolution).</li>
+</ul>
+</div>
+<div id="internal-structure" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Internal
+Structure</h1>
+<ul>
+<li>Think of OCAR as an <em>arc</em>: from the opening, over building
+and relieving tension, to the resolution. Inside the overall arc, there
+are small arcs nested within larger ones.</li>
+<li>Arcs help to divide thoughts and place them into established
+frameworks. Each unit arc makes a single point and resolves. The link
+between arcs in a serial structure must be clear.</li>
+<li>Tools for building arcs are subheads, paragraph breaks, and flag
+words such as <em>however</em> and <em>consequently</em>.</li>
+</ul>
+</div>
+<div id="paragraphs" class="section level1" number="11">
+<h1><span class="header-section-number">11</span> Paragraphs</h1>
+<ul>
+<li>Paragraphs are the smallest arcs.</li>
+<li>Two structure types: point-first (LD) versus point-last (OCAR, LDR)
+paragraphs. The former is more common, the latter can be used to make a
+complex or critical story point.</li>
+<li>Avoid paragraphs without point or coherent structure (can result
+from <em>curse of knowledge</em>).</li>
+</ul>
+</div>
+<div id="sentences" class="section level1" number="12">
+<h1><span class="header-section-number">12</span> Sentences</h1>
+<ul>
+<li>The beginning (subject) of a sentence is what the reader interprets
+as the <em>topic</em>. It should be a familiar scheme and short.</li>
+<li>The verb should immediately follow the subject to avoid
+confusion.</li>
+<li>The end of a sentence is the <em>stress</em>. Put the main message
+and new ideas here.</li>
+<li>For long sentences, get to the topic quickly, then to the action,
+and add nuances at the end if needed.</li>
+</ul>
+</div>
+<div id="flow" class="section level1" number="13">
+<h1><span class="header-section-number">13</span> Flow</h1>
+<ul>
+<li>Help readers not lose track at the end of sentences or paragraph
+breaks by having story flow.</li>
+<li>Create flow by tying together the stress of the last sentence and
+the topic of the next one.</li>
+<li>The opening of a paragraph sets its theme. As long as every sentence
+has a topic that fits into that theme, the paragraph will hang
+together.</li>
+</ul>
+</div>
+<div id="energizing-writing" class="section level1" number="14">
+<h1><span class="header-section-number">14</span> Energizing
+Writing</h1>
+<ul>
+<li>Good stories are driven by action, and showing the action is the job
+of verbs, so choosing good verbs is important.</li>
+<li>Use the active voice to be clear and direct. The passive voice can
+be used to switch stress and topic in a sentence, or to avoid naming the
+actor.</li>
+<li>Avoid (fuzzy) verbs that say that something happened but not what,
+e.g. “income affects choosing this brand” versus “higher income
+increases the choice probability for this brand”.</li>
+<li>Avoid turning verbs or adjectives into nouns (nominalization),
+e.g. “they differed significantly” has more energy than “there was a
+difference with significance”.</li>
+</ul>
+</div>
+<div id="words" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Words</h1>
+<ul>
+<li>Technical terms or abbreviations: putting them at the sentence
+beginning assumes that every reader understands them (risk of it
+appearing as jargon), putting them at the end defines them (risk of
+being ignorant), putting them in the middle as a sub-clause is a
+compromise (risk of people missing the term). If you err, err on the
+side of over-defining.</li>
+<li>Avoid unnecessarily technical terms if possible.</li>
+<li>Be aware of synonyms that are emotionally lighter and shorter,
+e.g. “demonstrate” vs “show”.</li>
+<li>If possible, use compound nouns and avoid phrases of prepositions.
+But avoid noun train confusion.</li>
+</ul>
+</div>
+<div id="condensing" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Condensing</h1>
+<ul>
+<li>Condense your paper, otherwise readers might get frustrated (by
+ideas that are buried in words or cumbersome sentences). But don’t
+condense words that build flow and coherence.</li>
+<li>Delete redundancies (“most, but not all” vs “most”).</li>
+<li>Delete obvious parts (“a pandemic that is global in scope” vs “a
+pandemic”).</li>
+<li>Delete adverbs and adjectives that don’t add meaning (“the treatment
+dramatically increased” vs “the treatment increased”). However, they are
+sometimes necessary to clarify or define (“preliminary result” is a
+distinction from just “result”, “final result” is not).</li>
+<li>Avoid unnecessary metadiscourse (e.g. “we found that”, “we argue
+that”).</li>
+<li>Avoid nominalized actions/verbs (“for the purpose of analyzing” vs
+“to analyze”).</li>
+</ul>
+</div>
+<div id="putting-it-all-together-real-editing" class="section level1"
+number="17">
+<h1><span class="header-section-number">17</span> Putting it All
+Together: Real Editing</h1>
+<ul>
+<li><strong>S</strong>tructure: get the structure of the story into
+shape, make the sentences fit together.</li>
+<li><strong>C</strong>larity: ensure that your ideas are clear and
+concrete.</li>
+<li><strong>F</strong>low: make the ideas flow, linking one thought to
+the next.</li>
+<li><strong>L</strong>anguage: make it sound good.</li>
+<li>Repeat the steps.</li>
+<li>Read your writing out loud to hear awkward expressions, breaks in
+flow, and clunky words.</li>
+</ul>
+</div>
+<div id="dealing-with-limitations" class="section level1" number="18">
+<h1><span class="header-section-number">18</span> Dealing with
+Limitations</h1>
+<ul>
+<li>In the Introduction, be careful in framing the knowledge gap you
+will actually fill.</li>
+<li>Address reader’s concerns as soon as they arise: explain why your
+methods will answer your questions, how you get around limitations, why
+you are not doing expected things.</li>
+<li>Don’t undermine your work, start with the “but” (limitations) and
+end with a “yes” (what we learned).</li>
+</ul>
+</div>
+<div id="writing-global-science" class="section level1" number="19">
+<h1><span class="header-section-number">19</span> Writing Global
+Science</h1>
+<ul>
+<li>Before submitting, make sure you know a journal’s focus and intended
+audience.</li>
+</ul>
+</div>
+<div id="writing-for-the-public" class="section level1" number="20">
+<h1><span class="header-section-number">20</span> Writing for the
+Public</h1>
+<ul>
+<li>When writing to the public (beyond a scientific community), offer
+more story/application and less complexity/jargon.</li>
+<li>Message box, a graphical tool for laying out a story’s essential
+elements: Put the issue and audience in the middle, the specific problem
+on top, the “so what?” on the right, the offered solution on the bottom,
+and the potential benefits to the left.</li>
+</ul>
+</div>
+<div id="resolution" class="section level1" number="21">
+<h1><span class="header-section-number">21</span> Resolution</h1>
+<ul>
+<li>Main message: as a scientist, you are a professional writer.</li>
+<li>Science is about knowledge and understanding, not just data.</li>
+<li>You don’t succeed by getting papers published but by getting them
+cited.</li>
+</ul>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
