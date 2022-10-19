@@ -53,6 +53,7 @@ Insert output placeholders to UI by adding `{type}Output()` functions to `ui`. E
 - static tables with `tableOutput()` (`renderTable()`) 
 - dynamic tables with `dataTableOutput()` (`renderDataTable()`)
 - plots with `plotOutput()` (`renderPlot()`)
+- images with `imageOutput()` (`renderImage()`)
 
 # Basic Reactivity
 
@@ -89,7 +90,7 @@ Development of a richer Shiny app with the concepts seen so far. [Demo](https://
 
 ## Development
 
-- Type *shinyapp* in .R file to insert Shiny app snippet
+- Type *shinyapp* in .R file and use *Tab* to insert Shiny app snippet
 
 - Keyboard shortcut to run the app: *Ctrl+Shift+Enter*
 
@@ -108,29 +109,120 @@ Development of a richer Shiny app with the concepts seen so far. [Demo](https://
 
 ## Debugging
 
-- Shiny automatically prints the traceback to the console
+- Shiny automatically prints the traceback to the console.
 
-- Use interactive debugger with `browser()` in source
+- Use `message()`, `str()` calls to understand when a part of the code is evaluated and to show values.
 
-- Use `message()` (with `glue::glue()`) or `str()` calls to understand when a part of the code is evaluated and to show values
+- To access values of reactive expressions, use interactive debugger with `browser()` in source.
 
-- Getting help: make a reprex (minimal reproducible example)
+- Getting help: first make a reprex (*minimal* *reproducible* example).
 
 # Layout, Themes, HTML
 
+The input and output functions just return HTML, which the developer can create themself, but Shiny offers helper functions. The `fluidPage()` provides basic HTML for the UI (alternatives are `fixedPage()` and `fillPage()`). Other functions modify the visual appearance:
+
+- App with sidebar (most common app design):
+  ```r
+  ui <- fluidPage(
+    titlePanel(
+      # app title/description
+    ),
+    sidebarLayout(
+      sidebarPanel(
+        # inputs
+      ),
+      mainPanel(
+        # outputs
+      )
+    )
+  )
+  ```
+- Multiple rows (number of columns should add up to 12):
+  ```r
+  ui <- fluidPage(
+    fluidRow(
+      column(4,
+        ...
+      ),
+      column(8,
+        ...
+      )
+    )
+  )
+  ```
+- Tabsets (for multipage layout, alternatives are Navlists and Navbars):
+  ```r
+  ui <- fluidPage(
+    tabsetPanel(
+      tabPanel("Import data", 
+        ...
+      ),
+      tabPanel("Visualize data",
+        ...
+      )
+    )
+  )
+  ```
+
+Shiny uses the Bootstrap CSS and javascript style framework. The style can be modified via `theme = bslib::bs_theme()` as argument to `fluidPage()`. Use `bslib::bs_theme_preview(theme)` to preview the theme. Use `thematic::thematic_shiny()` inside `server()` adapt the theme to plots.
+
 # Graphics 
 
-interactive graphics `plotOutput("id", click = "plot_click")` in ui makes coordinates `input$plot_click` available in server
+`plotOutput()` can serve as an input that tracks pointer events, leading to interactive plots. Add the following arguments:
 
-use `req()` to avoid app action before user input
-
-use `nearPoints(<dataset>, input$plot_click)` to get points near to the click
-
-can also use `dblclick`, `hover`, and `brush` (together with `brushedPoints()` helper) argument
-
-can modify a plot interactively with `reactiveVal()`
+- click: `plotOutput("id", click = "plot_click")` makes coordinates `input$plot_click` available in `server()` (e.g., use `nearPoints(<dataset>, input$plot_click)` to get data points near to the click)
+- double-click: `plotOutput("id", dblclick = "plot_click")` (similar to `click`)
+- hover: `plotOutput("id", hover = "plot_click")` (similar to `click`)
+- rectangular selection tool: `plotOutput("id", brush = "plot_brush")` makes coordinates `input$plot_brush` available (e.g., use `brushedPoints(<dataset>, input$plot_brush)` to get the selected data points)
 
 # User Feedback
+
+Thoughtful communication about what's happening with the app can have a huge impact on the quality of the user experience.
+
+## Validation
+
+Use the {shinyFeedback} package to put feedback next to an invalid input:
+
+```r
+ui <- fluidPage(
+  shiny::useShinyFeedback(),
+  numericInput("n", "n", value = 10)
+)
+server <- function(input, output, session) {
+  square_root <- reactive({
+    shinyFeedback::feedbackWarning("n", input$n < 0, "Please select a positive number.")
+    req(input$n >= 0)
+    sqrt(input$n)
+  })
+}
+```
+
+The function `req()` stops bad or missing inputs from triggering reactive changes. Alternatives to `feedbackWarning()` are `feedback()`, `feedbackDanger()`, and `feedbackSuccess()`. Alternative to {shinyFeedback} is the Shiny built-in function `validate()`.
+
+## Notifications
+
+To let the user know what's happening, display a notification via `showNotification("<text>")` inside `server()`. It can be transient, removed on completion, or progressively updated.
+
+## Progress Bars
+
+Progress bars help the user to estimate the time to completion. Inside `server()`:
+
+```r
+eventReactive(input$go, {
+  withProgress(message = "Computing random number", {
+    for (i in 1:steps) {
+      x <- function_that_takes_a_long_time(x)
+      incProgress(1 / steps)
+    }
+  })
+})
+```
+
+The `eventReactive()` environment is not required, but it is good practice to allow the user to control when the time consuming task starts. The {waiter} package offers more visual options (like, e.g., spinners).
+
+## Dialoges
+
+Create dialog boxes with `modalDialog()` to get, e.g., explicit confirmation from user for a potentially destructive action. Use `showModal()` and `removeModal()` to show and remove the dialog, respectively. 
 
 # Uploads and Downloads
 
