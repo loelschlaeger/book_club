@@ -657,6 +657,17 @@ remove the dialog, respectively.</p>
 <div id="uploads-and-downloads" class="section level1" number="9">
 <h1><span class="header-section-number">9</span> Uploads and
 Downloads</h1>
+<p>To upload files, use <code>fileInput("id")</code> in the UI, which
+makes the data frame <code>input$id</code> of file information available
+in <code>server()</code> (it is initialized with <code>NULL</code>, so
+use <code>req(input$id)</code> to make sure the code waits for the first
+upload).</p>
+<p>To download files, use <code>downloadButton("id")</code> in the UI.
+Unlike other outputs, it is not paired with a render function, but with
+<code>downloadHandler()</code>. There is the option to create
+downloadable reports via (parameterized) RMarkdown documents via using
+<code>rmarkdown::render()</code> for the <code>content</code> argument
+of <code>downloadHandler()</code>.</p>
 </div>
 <div id="dynamic-ui" class="section level1" number="10">
 <h1><span class="header-section-number">10</span> Dynamic UI</h1>

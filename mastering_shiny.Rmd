@@ -226,6 +226,10 @@ Create dialog boxes with `modalDialog()` to get, e.g., explicit confirmation fro
 
 # Uploads and Downloads
 
+To upload files, use `fileInput("id")` in the UI, which makes the data frame `input$id` of file information available in `server()` (it is initialized with `NULL`, so use `req(input$id)` to make sure the code waits for the first upload).
+
+To download files, use `downloadButton("id")` in the UI. Unlike other outputs, it is not paired with a render function, but with `downloadHandler()`. There is the option to create downloadable reports via (parameterized) RMarkdown documents via using `rmarkdown::render()` for the `content` argument of `downloadHandler()`.
+
 # Dynamic UI
 
 # Bookmarking
