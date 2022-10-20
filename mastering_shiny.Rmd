@@ -265,5 +265,8 @@ The generated URL stores the input states. Alternatives are:
 
 # Tidy Evaluation
 
+There are two issues when using functions from {tidyverse} in (Shiny) programming: 
 
+- Data masking: Variables in the applied data frame are called without any extra syntax, hence cannot use (user input) variables directly, but via `data_frame %>% filter(.data[[input$var]] > .env$input$min)`, where `.data` makes clear that `input$var` lives inside `data_frame` and `.env` that `input$var` is an environment variable.
+- Tidy selection: Columns in the applied data frame can be selected by position, name, or type. To refer to variables indirectly, use `any_of()`, `across()`, etc.
 
