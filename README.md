@@ -6,4 +6,4 @@
 
 <!-- badges: end -->
 
-This repository contains summaries of the books we read in the Book Club at Bielefeld University, see https://loelschlaeger.de/book_club.
+This project contains summaries of the books we read in the Book Club at Bielefeld University, see https://loelschlaeger.de/book_club.
