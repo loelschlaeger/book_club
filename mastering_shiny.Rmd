@@ -232,16 +232,14 @@ To download files, use `downloadButton("id")` in the UI. Unlike other outputs, i
 
 # Dynamic UI
 
-The UI can be changed with code from `server()`.
+Every input control `{type}Input()` is paired with an update function `updateTextInput()` that allows to modify any UI control from `server()` after it has been created, e.g., to reset parameters back to their initial values, or to hierarchically create select boxes. There are two issues:
 
-## Updating Inputs
-
-Every input control `{type}Input()` is paired with an update function `updateTextInput()` that allows to modify the control after it has been created, e.g., to reset parameters back to their initial values, or to hierarchically create select boxes. There are two issues:
-
-- Modifications of UI take some time, use `freezeReactiveValue()` to tell all downstream calculations that an input value is currently stale.
+- Modifications of UI take some time, use `freezeReactiveValue()` to tell all downstream calculations that an input value is currently stale to avoid temporal bad states.
 - Be aware of circular references.
 
-## Dynamic Visibility
+To selectively show and hide parts of the UI from the server, use `tabsetPanel("id", type = "hidden")` (together with `updateTabsetPanel("id")`). This makes a [*wizard interface*](https://en.wikipedia.org/wiki/Wizard_(software)) possible.
+
+Even more flexible, the UI can be completely recreated in response to user action using `uiOutput("id")` in `ui` paired with `output$id <- renderUI()` in `server()`. This is most effective combined with functional programming, e.g., with {purrr}.
 
 # Bookmarking
 
