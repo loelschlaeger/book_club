@@ -572,30 +572,23 @@ server &lt;- function(input, output, session) {
 </div>
 <div id="bookmarking" class="section level1">
 <h1><span class="header-section-number">11</span> Bookmarking</h1>
-<p>Bookmarks allow to save and share the state of an app. For this,
-do:</p>
+<p>Bookmarks allow to save and share the state of an app. For this, do:</p>
 <ol style="list-style-type: decimal">
 <li>add <code>bookmarkButton()</code> to <code>ui</code></li>
-<li>turn <code>ui</code> into a function
-(<code>ui &lt;- function(request) {&lt;ui code&gt;}</code>)</li>
-<li>add <code>enableBookmarking = "url"</code> to
-<code>shinyApp()</code> call</li>
-<li><em>optional:</em> make random process reproducible with
-<code>repeatable()</code></li>
-<li><em>optional:</em> add <code>setBookmarkExclude()</code> to avoid
-bookmarking certain inputs</li>
+<li>turn <code>ui</code> into a function (<code>ui &lt;- function(request) {&lt;ui code&gt;}</code>)</li>
+<li>add <code>enableBookmarking = "url"</code> to <code>shinyApp()</code> call</li>
+<li><em>optional:</em> make random process reproducible with <code>repeatable()</code></li>
+<li><em>optional:</em> add <code>setBookmarkExclude()</code> to avoid bookmarking certain inputs</li>
 </ol>
 <p>The generated URL stores the input states. Alternatives are:</p>
 <ol style="list-style-type: decimal">
-<li><p>automatically update URL in the browser by adding this chunk to
-<code>server()</code>:</p>
+<li><p>automatically update URL in the browser by adding this chunk to <code>server()</code>:</p>
 <pre class="r"><code>observe({
   reactiveValuesToList(input)
   session$doBookmark()
 })
 onBookmarked(updateQueryString)</code></pre></li>
-<li><p>set <code>enableBookmarking = "server"</code> to save app state
-as <em>.rds</em> file on the server</p></li>
+<li><p>set <code>enableBookmarking = "server"</code> to save app state as <em>.rds</em> file on the server</p></li>
 </ol>
 </div>
 <div id="tidy-evaluation" class="section level1">
