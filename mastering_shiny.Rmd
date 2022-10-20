@@ -243,4 +243,27 @@ Even more flexible, the UI can be completely recreated in response to user actio
 
 # Bookmarking
 
+Bookmarks allow to save and share the state of an app. For this, do:
+
+1. add `bookmarkButton()` to `ui`
+2. turn `ui` into a function (`ui <- function(request) {<ui code>}`)
+3. add `enableBookmarking = "url"` to `shinyApp()` call
+4. *optional:* make random process reproducible with `repeatable()`
+5. *optional:* add `setBookmarkExclude()` to avoid bookmarking certain inputs
+
+The generated URL stores the input states. Alternatives are:
+
+1. automatically update URL in the browser by adding this chunk to `server()`:
+   ```r
+   observe({
+     reactiveValuesToList(input)
+     session$doBookmark()
+   })
+   onBookmarked(updateQueryString)
+   ```
+2. set `enableBookmarking = "server"` to save app state as *.rds* file on the server
+
 # Tidy Evaluation
+
+
+
