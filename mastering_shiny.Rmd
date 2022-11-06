@@ -270,3 +270,21 @@ There are two issues when using functions from {tidyverse} in (Shiny) programmin
 - Data masking: Variables in the applied data frame are called without any extra syntax, hence cannot use (user input) variables directly, but via `data_frame %>% filter(.data[[input$var]] > .env$input$min)`, where `.data` makes clear that `input$var` lives inside `data_frame` and `.env` that `input$var` is an environment variable.
 - Tidy selection: Columns in the applied data frame can be selected by position, name, or type. To refer to variables indirectly, use `any_of()`, `across()`, etc.
 
+# Why Reactivity?
+
+- We need expressions and outputs to update if and only if their inputs change (1. stay in sync and 2. do minimal work). 
+- Solution: Reactive Expressions (1. are lazy and 2. are cached)
+- History: first use in spreadsheats (cells update automatically through formula dependencies), now reactive programming dominates web programming
+
+# The Reactive Graph
+
+1. Session begins: no connections exist, reactive expressions are invalidated, reactive inputs are ready.
+2. Execution begins: Shiny picks randomly an invalidated output and executes it.
+3. If output needs value of reactive expression, expression is executed. Expression records connection. If output needs reactive input, the input can be returned immediately.
+4. Recursive progress until every reactive expression completes and every output executes. Then session is at rest and waits for input change.
+5. If an input changes, invalidate the input, notify the dependencies, and remove the existing connection. (This implies that the reactive graph is dynamic and can change while the app runs, depending on input values which might define connections.) Then execute invalidated outputs again.
+
+The {reactlog} package can draw the reactive graph of an app automatically.
+
+
+
