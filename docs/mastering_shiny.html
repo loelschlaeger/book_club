@@ -772,6 +772,35 @@ again.</li>
 <p>The {reactlog} package can draw the reactive graph of an app
 automatically.</p>
 </div>
+<div id="reactive-building-blocks" class="section level1" number="15">
+<h1><span class="header-section-number">15</span> Reactive Building
+Blocks</h1>
+<div id="reactive-values" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Reactive Values</h2>
+<ul>
+<li>most come from <code>input</code> argument to
+<code>server()</code></li>
+<li>can create own: <code>reactiveVal()</code> (single reactive value)
+or <code>reactiveValues()</code> (list)</li>
+<li>both types have reference semantics (not copy-on-modify)</li>
+</ul>
+</div>
+<div id="reactive-expressions-1" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> Reactive
+Expressions</h2>
+<ul>
+<li>wrapped inside <code>reactive()</code></li>
+<li>they cache errors (will be displayed in the console and terminate
+session)</li>
+<li>reactive expressions behave like functions, so function that only
+work inside functions can be used (e.g., <code>on.exit()</code>)</li>
+</ul>
+</div>
+<div id="observers-and-outputs" class="section level2" number="15.3">
+<h2><span class="header-section-number">15.3</span> Observers and
+Outputs</h2>
+</div>
+</div>
 
 
 
