@@ -286,5 +286,20 @@ There are two issues when using functions from {tidyverse} in (Shiny) programmin
 
 The {reactlog} package can draw the reactive graph of an app automatically.
 
+# Reactive Building Blocks
+
+## Reactive Values
+
+- most come from `input` argument to `server()`
+- can create own: `reactiveVal()` (single reactive value) or `reactiveValues()` (list)
+- both types have reference semantics (not copy-on-modify)
+
+## Reactive Expressions
+
+- wrapped inside `reactive()`
+- they cache errors (will be displayed in the console and terminate session)
+- reactive expressions behave like functions, so function that only work inside functions can be used (e.g., `on.exit()`)
+
+## Observers and Outputs
 
 
