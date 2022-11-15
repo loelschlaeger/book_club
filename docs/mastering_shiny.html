@@ -770,36 +770,76 @@ values which might define connections.) Then execute invalidated outputs
 again.</li>
 </ol>
 <p>The {reactlog} package can draw the reactive graph of an app
-automatically.</p>
+automatically: - Before starting the app, run
+<code>reactlog::reactlog_enable()</code>. - After the app has closed,
+run <code>shiny::reactlogShow()</code>.</p>
 </div>
 <div id="reactive-building-blocks" class="section level1" number="15">
 <h1><span class="header-section-number">15</span> Reactive Building
 Blocks</h1>
-<div id="reactive-values" class="section level2" number="15.1">
-<h2><span class="header-section-number">15.1</span> Reactive Values</h2>
+<p>There are three building blocks of reactive programming: reactive
+values, reactive expressions, and observers (including outputs).</p>
+<ul>
+<li>Reactive Values:
 <ul>
 <li>most come from <code>input</code> argument to
 <code>server()</code></li>
 <li>can create own: <code>reactiveVal()</code> (single reactive value)
 or <code>reactiveValues()</code> (list)</li>
 <li>both types have reference semantics (not copy-on-modify)</li>
-</ul>
-</div>
-<div id="reactive-expressions-1" class="section level2" number="15.2">
-<h2><span class="header-section-number">15.2</span> Reactive
-Expressions</h2>
+</ul></li>
+<li>Reactive Expressions:
 <ul>
 <li>wrapped inside <code>reactive()</code></li>
 <li>they cache errors (will be displayed in the console and terminate
 session)</li>
 <li>reactive expressions behave like functions, so function that only
 work inside functions can be used (e.g., <code>on.exit()</code>)</li>
+</ul></li>
+<li>Observers and Outputs:
+<ul>
+<li>terminal nodes in the reactive graph, eager and forgetful</li>
+<li>created via <code>observe()</code> (low-level) or
+<code>observeEvent()</code> (user-friendly)</li>
+<li>to create output, assign <code>output$value &lt;- ...</code></li>
+</ul></li>
+</ul>
+<div id="isolating-code" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Isolating Code</h2>
+<ul>
+<li><code>isolate()</code> allows to access the current value of a
+reactive (value or expression) without taking a dependency on it</li>
+<li><code>observeEvent(x, y)</code> is equivalent to
+<code>observe({x; isolate(y)})</code> (<code>eventReactive()</code> is
+the same for reactives)</li>
 </ul>
 </div>
-<div id="observers-and-outputs" class="section level2" number="15.3">
-<h2><span class="header-section-number">15.3</span> Observers and
-Outputs</h2>
+<div id="timed-invalidation" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> Timed
+Invalidation</h2>
+<ul>
+<li><code>invalidateLater(ms)</code> invalidates any reactive consumer
+after <code>ms</code> milliseconds (time is a minimum and can be
+larger)</li>
+<li><code>reactivePoll()</code> (or <code>reactiveFileReader()</code>)
+for downloading data every time interval (with check if data actually
+changed)</li>
+</ul>
 </div>
+</div>
+<div id="escaping-the-graph" class="section level1" number="16">
+<h1><span class="header-section-number">16</span> Escaping the
+Graph</h1>
+<ul>
+<li>one can combine <code>reactiveVal()</code> and
+<code>observeEvent()</code> to connect the right-hand side of the
+reactive graph back to the left-hand side</li>
+<li>technically, when calling an <code>update*()</code> function or
+modifying a reactive, no reactive dependency is created between reactive
+value and observer</li>
+<li>sometimes these techniques are required to solve advanced problems,
+but should be used sparsely</li>
+</ul>
 </div>
 
 
