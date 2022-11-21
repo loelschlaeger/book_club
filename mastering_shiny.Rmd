@@ -333,3 +333,15 @@ There are three building blocks of reactive programming: reactive values, reacti
 - continuous integration/deployment: automatic and perpetual validation of code changes (e.g., via GitHub actions)
 - code reviews: many benefits from having someone else review code before integration
 
+# Functions
+
+- breaking app code into functions
+  1. reduces duplication (more efficient coding)
+  2. makes debugging easier
+  3. allows code isolation
+- file organization: 
+  - large functions in `R/{function-name}.R`
+  - collect small functions in `R/utils.R`
+- Try to keep reactive and nonreactive parts as separate as possible.
+  
+
