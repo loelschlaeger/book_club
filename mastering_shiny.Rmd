@@ -323,5 +323,13 @@ There are three building blocks of reactive programming: reactive values, reacti
 - technically, when calling an `update*()` function or modifying a reactive, no reactive dependency is created between reactive value and observer
 - sometimes these techniques are required to solve advanced problems, but should be used sparsely 
 
+# General Guidelines
 
+- challenge: keeping a complex and growing code-base organized, stable, and maintainable
+- code organization: clear variable and function names, comments where needed, no code repetition, code isolation
+- testing: automated test plan that grows over time and runs after each change
+- dependency management: create reproducible R environment with {renv} or track dependencies with {config}
+- source code management: use Git for version control, paired with GitHub for code sharing and collaboration
+- continuous integration/deployment: automatic and perpetual validation of code changes (e.g., via GitHub actions)
+- code reviews: many benefits from having someone else review code before integration
 
