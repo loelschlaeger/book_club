@@ -879,6 +879,23 @@ before integration</li>
 possible.</li>
 </ul>
 </div>
+<div id="shiny-modules" class="section level1" number="19">
+<h1><span class="header-section-number">19</span> Shiny Modules</h1>
+<ul>
+<li>modules can extract code that spans both UI and server</li>
+<li>very similar to app: composed of module UI and module server (both
+functions)
+<ul>
+<li>put UI code inside a function that has an <code>id</code> argument
+and wrap each existing ID <code>var</code> in a call
+<code>NS(id, "var")</code> (creates module namespace)</li>
+<li>wrap server function inside another function that has an
+<code>id</code> argument and calls <code>moduleServer()</code> with the
+<code>id</code> and a function that looks like a regular server
+function</li>
+</ul></li>
+</ul>
+</div>
 
 
 
