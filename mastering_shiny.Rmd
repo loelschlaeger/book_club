@@ -343,5 +343,13 @@ There are three building blocks of reactive programming: reactive values, reacti
   - large functions in `R/{function-name}.R`
   - collect small functions in `R/utils.R`
 - Try to keep reactive and nonreactive parts as separate as possible.
+
+# Shiny Modules
+
+- modules can extract code that spans both UI and server
+- very similar to app: composed of module UI and module server (both functions)
+  - put UI code inside a function that has an `id` argument and wrap each existing ID `var` in a call `NS(id, "var")` (creates module namespace)
+  - wrap server function inside another function that has an `id` argument and calls `moduleServer()` with the `id` and a function that looks like a regular server function
+    
   
 
