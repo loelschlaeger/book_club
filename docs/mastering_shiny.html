@@ -841,6 +841,44 @@ value and observer</li>
 but should be used sparsely</li>
 </ul>
 </div>
+<div id="general-guidelines" class="section level1" number="17">
+<h1><span class="header-section-number">17</span> General
+Guidelines</h1>
+<ul>
+<li>challenge: keeping a complex and growing code-base organized,
+stable, and maintainable</li>
+<li>code organization: clear variable and function names, comments where
+needed, no code repetition, code isolation</li>
+<li>testing: automated test plan that grows over time and runs after
+each change</li>
+<li>dependency management: create reproducible R environment with {renv}
+or track dependencies with {config}</li>
+<li>source code management: use Git for version control, paired with
+GitHub for code sharing and collaboration</li>
+<li>continuous integration/deployment: automatic and perpetual
+validation of code changes (e.g., via GitHub actions)</li>
+<li>code reviews: many benefits from having someone else review code
+before integration</li>
+</ul>
+</div>
+<div id="functions" class="section level1" number="18">
+<h1><span class="header-section-number">18</span> Functions</h1>
+<ul>
+<li>breaking app code into functions
+<ol style="list-style-type: decimal">
+<li>reduces duplication (more efficient coding)</li>
+<li>makes debugging easier</li>
+<li>allows code isolation</li>
+</ol></li>
+<li>file organization:
+<ul>
+<li>large functions in <code>R/{function-name}.R</code></li>
+<li>collect small functions in <code>R/utils.R</code></li>
+</ul></li>
+<li>Try to keep reactive and nonreactive parts as separate as
+possible.</li>
+</ul>
+</div>
 
 
 
