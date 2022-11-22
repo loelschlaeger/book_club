@@ -881,10 +881,10 @@ possible.</li>
 </div>
 <div id="shiny-modules" class="section level1" number="19">
 <h1><span class="header-section-number">19</span> Shiny Modules</h1>
+<p>Modules can extract code that spans both UI and server into reusable
+components to simplify complex apps:</p>
 <ul>
-<li>modules can extract code that spans both UI and server</li>
-<li>very similar to app: composed of module UI and module server (both
-functions)
+<li>composed of module UI and module server (both functions)
 <ul>
 <li>put UI code inside a function that has an <code>id</code> argument
 and wrap each existing ID <code>var</code> in a call
@@ -893,8 +893,24 @@ and wrap each existing ID <code>var</code> in a call
 <code>id</code> argument and calls <code>moduleServer()</code> with the
 <code>id</code> and a function that looks like a regular server
 function</li>
+<li>good practice to write function that uses both modules to create
+app</li>
 </ul></li>
+<li>module servers can receive additional arguments (reactive or
+constant) and can return (list of) values that should be reactive</li>
 </ul>
+</div>
+<div id="packages" class="section level1" number="20">
+<h1><span class="header-section-number">20</span> Packages</h1>
+<p>Shiny Apps can be organized in packages:</p>
+<ol style="list-style-type: decimal">
+<li>Put all R code in the <code>R/</code> directory. Pulling modules in
+separate files is useful.</li>
+<li>Write a function that starts the app.</li>
+<li>Create a <code>DESCRIPTION</code> file.</li>
+</ol>
+<p>A package structure provides an easy workflow to accurately reload
+and relaunch the app.</p>
 </div>
 
 
