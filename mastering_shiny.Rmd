@@ -346,10 +346,13 @@ There are three building blocks of reactive programming: reactive values, reacti
 
 # Shiny Modules
 
-- modules can extract code that spans both UI and server
-- very similar to app: composed of module UI and module server (both functions)
+Modules can extract code that spans both UI and server into reusable components to simplify complex apps:
+
+- composed of module UI and module server (both functions)
   - put UI code inside a function that has an `id` argument and wrap each existing ID `var` in a call `NS(id, "var")` (creates module namespace)
   - wrap server function inside another function that has an `id` argument and calls `moduleServer()` with the `id` and a function that looks like a regular server function
+  - good practice to write function that uses both modules to create app
+- module servers can receive additional arguments (reactive or constant) and can return (list of) values that should be reactive
     
-  
+# Packages
 
