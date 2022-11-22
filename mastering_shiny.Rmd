@@ -356,3 +356,11 @@ Modules can extract code that spans both UI and server into reusable components 
     
 # Packages
 
+Shiny Apps can be organized in packages:
+
+1. Put all R code in the `R/` directory. Pulling modules in separate files is useful.
+2. Write a function that starts the app.
+3. Create a `DESCRIPTION` file.
+
+A package structure provides an easy workflow to accurately reload and relaunch the app.
+
