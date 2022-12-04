@@ -373,3 +373,11 @@ A package structure provides an easy workflow to accurately reload and relaunch 
 - The {shinytest} package allows testing user interaction with an app (downside: quite slow).
 - To test visuals, you can take and compare screenshots. However, this is the most fragile technique.
 
+# Security
+
+Two main things to protect:
+
+1. Your personally identifying information, passwords: never include them in source code, never attempt to roll user authentication yourself, be aware that inputs are validated on the client-side.
+2. Your compute resources: combination of `parse()` and `eval()` can make app vulnerable, and it is hidden in many places (model formulas, {glue} package, variable transformations to {dplyr} and {ggplot2}).
+
+
