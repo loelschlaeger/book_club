@@ -364,3 +364,12 @@ Shiny Apps can be organized in packages:
 
 A package structure provides an easy workflow to accurately reload and relaunch the app.
 
+# Testing
+
+- Testing non-reactive functions is easily automated via unit testing with {testthat} package.
+- To test HTML code from extracted UI code, use snapshot tests.
+- Use code coverage to see what proportion of code is covered by tests.
+- Test reactives with `shiny::testServer()`. This is a (limited) simulation of an app. Works similar with modules. However, time does not advance automatically. Also, it ignores the UI (e.g., can't test the `update*()` functions because they work with JavaScript). Any code that relies on a real browser running will not work.
+- The {shinytest} package allows testing user interaction with an app (downside: quite slow).
+- To test visuals, you can take and compare screenshots. However, this is the most fragile technique.
+
