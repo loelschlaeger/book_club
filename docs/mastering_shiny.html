@@ -912,6 +912,39 @@ separate files is useful.</li>
 <p>A package structure provides an easy workflow to accurately reload
 and relaunch the app.</p>
 </div>
+<div id="testing" class="section level1" number="21">
+<h1><span class="header-section-number">21</span> Testing</h1>
+<ul>
+<li>Testing non-reactive functions is easily automated via unit testing
+with {testthat} package.</li>
+<li>To test HTML code from extracted UI code, use snapshot tests.</li>
+<li>Use code coverage to see what proportion of code is covered by
+tests.</li>
+<li>Test reactives with <code>shiny::testServer()</code>. This is a
+(limited) simulation of an app. Works similar with modules. However,
+time does not advance automatically. Also, it ignores the UI (e.g.,
+can’t test the <code>update*()</code> functions because they work with
+JavaScript). Any code that relies on a real browser running will not
+work.</li>
+<li>The {shinytest} package allows testing user interaction with an app
+(downside: quite slow).</li>
+<li>To test visuals, you can take and compare screenshots. However, this
+is the most fragile technique.</li>
+</ul>
+</div>
+<div id="security" class="section level1" number="22">
+<h1><span class="header-section-number">22</span> Security</h1>
+<p>Two main things to protect:</p>
+<ol style="list-style-type: decimal">
+<li>Your personally identifying information, passwords: never include
+them in source code, never attempt to roll user authentication yourself,
+be aware that inputs are validated on the client-side.</li>
+<li>Your compute resources: combination of <code>parse()</code> and
+<code>eval()</code> can make app vulnerable, and it is hidden in many
+places (model formulas, {glue} package, variable transformations to
+{dplyr} and {ggplot2}).</li>
+</ol>
+</div>
 
 
 
