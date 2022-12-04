@@ -380,4 +380,9 @@ Two main things to protect:
 1. Your personally identifying information, passwords: never include them in source code, never attempt to roll user authentication yourself, be aware that inputs are validated on the client-side.
 2. Your compute resources: combination of `parse()` and `eval()` can make app vulnerable, and it is hidden in many places (model formulas, {glue} package, variable transformations to {dplyr} and {ggplot2}).
 
+# Performance
 
+- Metaphor: Each customer (user) comes into the restaurant (server) and makes an order (request), which is then prepared by a chef (R process).
+- Benchmarking with {shinyloadtest} and `shinycannon` (Java) to check the performance of an app with multiple users.
+- Profile code with {profvis} to find bottleneck. It produces a flame graph (x-axis shows elapsed time and y-axis shows depth of call stack) with `profvis::profvis(f())`. 
+- Use `bindCache()` to cache reactives, {memoise} provides caching for regular R functions.
