@@ -945,6 +945,21 @@ places (model formulas, {glue} package, variable transformations to
 {dplyr} and {ggplot2}).</li>
 </ol>
 </div>
+<div id="performance" class="section level1" number="23">
+<h1><span class="header-section-number">23</span> Performance</h1>
+<ul>
+<li>Metaphor: Each customer (user) comes into the restaurant (server)
+and makes an order (request), which is then prepared by a chef (R
+process).</li>
+<li>Benchmarking with {shinyloadtest} and <code>shinycannon</code>
+(Java) to check the performance of an app with multiple users.</li>
+<li>Profile code with {profvis} to find bottleneck. It produces a flame
+graph (x-axis shows elapsed time and y-axis shows depth of call stack)
+with <code>profvis::profvis(f())</code>.</li>
+<li>Use <code>bindCache()</code> to cache reactives, {memoise} provides
+caching for regular R functions.</li>
+</ul>
+</div>
 
 
 
