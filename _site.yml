@@ -5,6 +5,8 @@ navbar:
       href: writing_science.html 
     - text: "Mastering Shiny"
       href: mastering_shiny.html
+    - text: "The Elements of Statistical Learning"
+      href: statistical_learning.html
   right:
     - icon: fa-github
       text: "Source"

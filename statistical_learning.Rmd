@@ -1,0 +1,24 @@
+---
+title: "The Elements of Statistical Learning"
+output:
+  pdf_document:
+    number_sections: true
+    latex_engine: pdflatex
+---
+
+[Hastie, Tibshirani, and Friedman (2009). The Elements of Statistical Learning. Second Edition. Springer.](https://hastie.su.domains/Papers/ESLII.pdf)
+
+```{r, eval=knitr::is_html_output(), echo=FALSE}
+knitr::asis_output('[Download summary](statistical_learning.pdf)')
+```
+
+# Introduction
+
+Statistical learning plays a key role in science, finance, industry, and many more areas. This book is about learning from data:
+- supervised learning (presence of outcome variable for learning)
+- unsupervised learning (outcome variable is not observed)
+Examples:
+- classification of spam emails
+- explain prostate specific antigen from clinical measurements via regression
+- image classification of handwritten digits
+- clustering of DNA microarray data for cancer diagnostic
