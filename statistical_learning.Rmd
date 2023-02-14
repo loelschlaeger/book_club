@@ -18,7 +18,9 @@ Statistical learning plays a key role in science, finance, industry, and many mo
 
 - supervised learning (presence of outcome variable for learning)
 - unsupervised learning (outcome variable is not observed)
+
 Examples:
+
 - classification of spam emails
 - explain prostate specific antigen from clinical measurements via regression
 - image classification of handwritten digits
