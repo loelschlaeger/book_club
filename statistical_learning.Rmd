@@ -15,6 +15,7 @@ knitr::asis_output('[Download summary](statistical_learning.pdf)')
 # Introduction
 
 Statistical learning plays a key role in science, finance, industry, and many more areas. This book is about learning from data:
+
 - supervised learning (presence of outcome variable for learning)
 - unsupervised learning (outcome variable is not observed)
 Examples:
@@ -22,3 +23,12 @@ Examples:
 - explain prostate specific antigen from clinical measurements via regression
 - image classification of handwritten digits
 - clustering of DNA microarray data for cancer diagnostic
+
+# Overview of Supervised Learning
+
+...
+
+# Linear Methods for Regression
+
+...
+
