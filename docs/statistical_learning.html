@@ -372,17 +372,15 @@ Second Edition. Springer.</a></p>
 <div id="introduction" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Introduction</h1>
 <p>Statistical learning plays a key role in science, finance, industry,
-and many more areas. This book is about learning from data:</p>
-<ul>
-<li>supervised learning (presence of outcome variable for learning)</li>
-<li>unsupervised learning (outcome variable is not observed)</li>
-</ul>
-<p>Examples:</p>
+and many more areas. This book is about learning from data: supervised
+learning (presence of outcome variable for learning) and unsupervised
+learning (outcome variable is not observed).</p>
+<p>Running examples:</p>
 <ul>
 <li>classification of spam emails</li>
-<li>explain prostate specific antigen from clinical measurements via
+<li>explaining prostate specific antigen from clinical measurements via
 regression</li>
-<li>image classification of handwritten digits</li>
+<li>classification of handwritten digits</li>
 <li>clustering of DNA microarray data for cancer diagnostic</li>
 </ul>
 </div>
@@ -390,7 +388,18 @@ regression</li>
 number="2">
 <h1><span class="header-section-number">2</span> Overview of Supervised
 Learning</h1>
-<p>…</p>
+<p>Two simple but powerful prediction methods are least squares linear
+models and k-nearest neighbor prediction rule. The former makes huge
+assumptions about structure and yields stable but possibly inaccurate
+predictions (low variance, high bias), the latter makes very mild
+assumptions with often accurate but unstable predictions (low bias, high
+variance).</p>
+<p>Local methods like k-nearest neighbor prediction suffer from the
+curse of dimensionality: in high dimensions, samples only sparsely
+populate the input space and are close to an edge. By imposing
+restrictions on the model class (e.g., linear models), this can be
+avoided. Many models have been proposed that lie in the spectrum between
+rigid model assumptions and flexibility.</p>
 </div>
 <div id="linear-methods-for-regression" class="section level1"
 number="3">
