@@ -373,15 +373,15 @@ Second Edition. Springer.</a></p>
 <h1><span class="header-section-number">1</span> Introduction</h1>
 <p>Statistical learning plays a key role in science, finance, industry,
 and many more areas. This book is about learning from data: supervised
-learning (presence of outcome variable for learning) and unsupervised
-learning (outcome variable is not observed).</p>
+learning (presence of outcome variable for learning, the focus of this
+book) and unsupervised learning (outcome variable is unobserved).</p>
 <p>Running examples:</p>
 <ul>
-<li>classification of spam emails</li>
-<li>explaining prostate specific antigen from clinical measurements via
+<li>Classification of spam emails</li>
+<li>Explaining prostate specific antigen from clinical measurements via
 regression</li>
-<li>classification of handwritten digits</li>
-<li>clustering of DNA microarray data for cancer diagnostic</li>
+<li>Classification of handwritten digits</li>
+<li>Clustering of DNA microarray data for cancer diagnostic</li>
 </ul>
 </div>
 <div id="overview-of-supervised-learning" class="section level1"
@@ -389,23 +389,40 @@ number="2">
 <h1><span class="header-section-number">2</span> Overview of Supervised
 Learning</h1>
 <p>Two simple but powerful prediction methods are least squares linear
-models and k-nearest neighbor prediction rule. The former makes huge
-assumptions about structure and yields stable but possibly inaccurate
-predictions (low variance, high bias), the latter makes very mild
-assumptions with often accurate but unstable predictions (low bias, high
-variance).</p>
-<p>Local methods like k-nearest neighbor prediction suffer from the
-curse of dimensionality: in high dimensions, samples only sparsely
-populate the input space and are close to an edge. By imposing
-restrictions on the model class (e.g., linear models), this can be
-avoided. Many models have been proposed that lie in the spectrum between
-rigid model assumptions and flexibility.</p>
+models and <span class="math inline">\(k\)</span>-nearest neighbors. The
+former makes huge assumptions about structure and yields stable but
+possibly inaccurate predictions (low variance, high bias), the latter
+makes very mild assumptions with often accurate but unstable predictions
+(at least if <span class="math inline">\(k\)</span> is low, leading to
+low bias and high variance).</p>
+<p>Local methods like <span class="math inline">\(k\)</span>-nearest
+neighbors suffer from the curse of dimensionality: in high dimensions,
+samples only sparsely populate the input space and are close to an edge
+(extrapolation might be required). By imposing restrictions on the model
+class (e.g., linear models), this can be avoided. Many models have been
+proposed that lie in the spectrum between rigid model assumptions and
+flexibility, they will be presented in the book.</p>
 </div>
 <div id="linear-methods-for-regression" class="section level1"
 number="3">
 <h1><span class="header-section-number">3</span> Linear Methods for
 Regression</h1>
-<p>…</p>
+<p>Linear regression models are simple and often adequate and
+interpretable. The Gauss-Markov theorem states that the least squares
+estimates have the smallest variance among all linear unbiased
+estimates. However, it might be a good idea to trade a little bit bias
+for a large reduction in variance. This is possible with different
+variable subset selection and shrinkage methods:</p>
+<ul>
+<li>Best-subset selection:</li>
+<li>Forward- and backward-stepwise selection:</li>
+<li>Forward-stagewise regression:</li>
+<li>Ridge regression:</li>
+<li>The lasso:</li>
+<li>Least angle regression:</li>
+<li>Principal components regression:</li>
+<li>Partial least squares:</li>
+</ul>
 </div>
 
 
