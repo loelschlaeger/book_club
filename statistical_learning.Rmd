@@ -33,9 +33,9 @@ Local methods like $k$-nearest neighbors suffer from the curse of dimensionality
 
 Linear regression models are simple and often adequate and interpretable. The Gauss-Markov theorem states that the least squares estimates have the smallest variance among all linear unbiased estimates. However, it might be a good idea to trade a little bit bias for a large reduction in variance. This is possible with different variable subset selection and shrinkage methods:
 
-- Best-subset selection: 
-- Forward- and backward-stepwise selection:
-- Forward-stagewise regression:
+- Best-subset selection: For each given size, find the best subset of variables that minimizes the residual sum of squares. Strategies for choosing the size will be discussed later.
+- Forward- and backward-stepwise selection: Searching through all possible subsets quickly becomes infeasible. Instead, sequentially add or remove variables.
+- Forward-stagewise regression: A more constrained version of forward-stepwise.
 - Ridge regression:
 - The lasso:
 - Least angle regression:
