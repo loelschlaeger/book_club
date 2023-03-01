@@ -35,9 +35,9 @@ Linear regression models are simple and often adequate and interpretable. The Ga
 
 - Best-subset selection: For each given size, find the best subset of variables that minimizes the residual sum of squares. Strategies for choosing the size will be discussed later.
 - Forward- and backward-stepwise selection: Searching through all possible subsets quickly becomes infeasible. Instead, sequentially add or remove variables.
-- Forward-stagewise regression: A more constrained version of forward-stepwise.
-- Ridge regression:
-- The lasso:
+- Forward-stagewise regression: A more constrained version of forward-stepwise, with benefits in high dimensions.
+- Ridge regression: The idea is to make the selection process continuous by shrinking the coefficient values, which can further reduce variance. The penalty for coefficient sizes is quadratic ($L2$). Variables with small variance are shrunk the most.
+- The lasso: Similar to ridge regression, but the penalty is in absolute coefficient value ($L1$). This can make some coefficients to be exactly zero.
 - Least angle regression:
 - Principal components regression:
 - Partial least squares:
