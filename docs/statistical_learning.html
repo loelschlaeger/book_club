@@ -414,11 +414,22 @@ estimates. However, it might be a good idea to trade a little bit bias
 for a large reduction in variance. This is possible with different
 variable subset selection and shrinkage methods:</p>
 <ul>
-<li>Best-subset selection:</li>
-<li>Forward- and backward-stepwise selection:</li>
-<li>Forward-stagewise regression:</li>
-<li>Ridge regression:</li>
-<li>The lasso:</li>
+<li>Best-subset selection: For each given size, find the best subset of
+variables that minimizes the residual sum of squares. Strategies for
+choosing the size will be discussed later.</li>
+<li>Forward- and backward-stepwise selection: Searching through all
+possible subsets quickly becomes infeasible. Instead, sequentially add
+or remove variables.</li>
+<li>Forward-stagewise regression: A more constrained version of
+forward-stepwise, with benefits in high dimensions.</li>
+<li>Ridge regression: The idea is to make the selection process
+continuous by shrinking the coefficient values, which can further reduce
+variance. The penalty for coefficient sizes is quadratic (<span
+class="math inline">\(L2\)</span>). Variables with small variance are
+shrunk the most.</li>
+<li>The lasso: Similar to ridge regression, but the penalty is in
+absolute coefficient value (<span class="math inline">\(L1\)</span>).
+This can make some coefficients to be exactly zero.</li>
 <li>Least angle regression:</li>
 <li>Principal components regression:</li>
 <li>Partial least squares:</li>
