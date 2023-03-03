@@ -425,11 +425,13 @@ forward-stepwise, with benefits in high dimensions.</li>
 <li>Ridge regression: The idea is to make the selection process
 continuous by shrinking the coefficient values, which can further reduce
 variance. The penalty for coefficient sizes is quadratic (<span
-class="math inline">\(L2\)</span>). Variables with small variance are
+class="math inline">\(L_2\)</span>). Variables with small variance are
 shrunk the most.</li>
 <li>The lasso: Similar to ridge regression, but the penalty is in
-absolute coefficient value (<span class="math inline">\(L1\)</span>).
+absolute coefficient value (<span class="math inline">\(L_1\)</span>).
 This can make some coefficients to be exactly zero.</li>
+<li>Elastic-net penalty: A convex combination of the ridge and the lasso
+penalty.</li>
 <li>Least angle regression:</li>
 <li>Principal components regression:</li>
 <li>Partial least squares:</li>
