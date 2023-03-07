@@ -40,6 +40,6 @@ Linear regression models are simple and often adequate and interpretable. The Ga
 - The lasso (least absolute shrinkage and selection operator): Similar to ridge regression, but the penalty is in absolute coefficient value ($L_1$). This can make some coefficients to be exactly zero.
 - Elastic-net penalty: A convex combination of the ridge and the lasso penalty.
 - Least angle regression: Similar to forward-stepwise regression with the difference, that entering variables are not fit completely but only until it no longer has the highest correlation with the current residual. A slight modification provides an efficient way of computing the entire lasso path.
-- Principal components regression:
-- Partial least squares:
+- Principal components regression: Use transformed variables with large sample variance.
+- Partial least squares: Also constructs a set of linear combinations of the inputs for regression, but unlike principal components regression it uses the dependent variable for construction.
 
