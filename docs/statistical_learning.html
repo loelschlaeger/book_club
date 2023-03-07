@@ -416,7 +416,8 @@ variable subset selection and shrinkage methods:</p>
 <ul>
 <li>Best-subset selection: For each given size, find the best subset of
 variables that minimizes the residual sum of squares. Strategies for
-choosing the size will be discussed later.</li>
+choosing the size will be discussed later. Not applicable for a large
+number of variables.</li>
 <li>Forward- and backward-stepwise selection: Searching through all
 possible subsets quickly becomes infeasible. Instead, sequentially add
 or remove variables.</li>
@@ -427,14 +428,22 @@ continuous by shrinking the coefficient values, which can further reduce
 variance. The penalty for coefficient sizes is quadratic (<span
 class="math inline">\(L_2\)</span>). Variables with small variance are
 shrunk the most.</li>
-<li>The lasso: Similar to ridge regression, but the penalty is in
-absolute coefficient value (<span class="math inline">\(L_1\)</span>).
-This can make some coefficients to be exactly zero.</li>
+<li>The lasso (least absolute shrinkage and selection operator): Similar
+to ridge regression, but the penalty is in absolute coefficient value
+(<span class="math inline">\(L_1\)</span>). This can make some
+coefficients to be exactly zero.</li>
 <li>Elastic-net penalty: A convex combination of the ridge and the lasso
 penalty.</li>
-<li>Least angle regression:</li>
-<li>Principal components regression:</li>
-<li>Partial least squares:</li>
+<li>Least angle regression: Similar to forward-stepwise regression with
+the difference, that entering variables are not fit completely but only
+until it no longer has the highest correlation with the current
+residual. A slight modification provides an efficient way of computing
+the entire lasso path.</li>
+<li>Principal components regression: Use transformed variables with
+large sample variance.</li>
+<li>Partial least squares: Also constructs a set of linear combinations
+of the inputs for regression, but unlike principal components regression
+it uses the dependent variable for construction.</li>
 </ul>
 </div>
 
