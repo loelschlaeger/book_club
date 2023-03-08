@@ -43,3 +43,5 @@ Linear regression models are simple and often adequate and interpretable. The Ga
 - Principal components regression: Use transformed variables with large sample variance.
 - Partial least squares: Also constructs a set of linear combinations of the inputs for regression, but unlike principal components regression it uses the dependent variable for construction.
 
+# Linear Methods for Classification
+
