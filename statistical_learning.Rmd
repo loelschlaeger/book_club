@@ -45,11 +45,10 @@ Linear regression models are simple and often adequate and interpretable. The Ga
 
 # Linear Methods for Classification
 
-Linear here means linear decision boundaries. One option is linear regression for indicator response matrix. Classes can be masked by others here , which can be avoided by adding polynomial terms. Another option is linear Discriminant Analysis. If error covariance is not constant, this yields quadratic discriminant functions. The difference in covariances can be regularized. 
+The goal is to classify inputs into a finite number of categories. This means dividing the input space into a collection of regions. Linear here means that the regions are separated by linear boundaries. 
 
-
-
-
-
-
+- One option is linear regression of inputs to indicators of the response. When there is a large number of classes, classes can be masked by others. That means, that the predicted regression value never dominates. This can be avoided by adding polynomial terms to the regression equation. 
+- Another option is linear discriminant analysis, where each class density is modeled as a multivariate Gaussian with constant error covariance. With two classes, this is the same as linear regression of the class indicators. If the error covariance is not constant but class-dependent, this yields quadratic discriminant functions. The difference in covariances can be regularized. In the linear case, since only the relative differences to the class centroids matter, the data can be projected in a subspace of dimension at most number of classes minus 1, which can be a significant drop in dimension. This subspace can be further decomposed in term of centroid separation. By choosing an optimal subspace dimension, this projection can also be used for classification.
+- Logistic regression updates the regression approach by ensuring that the dependent variables are proper probabilities. The lasso penalty can be used for variable selection. 
+- Separating hyperplane classifiers construct linear decision boundaries that explicitly try to separate the data into different classes as well as possible by minimizing the distance of misclassified points to the decision boundary. The optimal separating hyperplane maximizes the distance to the closest point from either class, which provides a unique solution with generalizes better.
 
