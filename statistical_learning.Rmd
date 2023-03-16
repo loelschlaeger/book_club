@@ -52,3 +52,5 @@ The goal is to classify inputs into a finite number of categories. This means di
 - Logistic regression updates the regression approach by ensuring that the dependent variables are proper probabilities. The lasso penalty can be used for variable selection. 
 - Separating hyperplane classifiers construct linear decision boundaries that explicitly try to separate the data into different classes as well as possible by minimizing the distance of misclassified points to the decision boundary. The optimal separating hyperplane maximizes the distance to the closest point from either class, which provides a unique solution with generalizes better.
 
+# Basis Expansions and Regularization
+
