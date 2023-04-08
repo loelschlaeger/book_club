@@ -54,3 +54,10 @@ The goal is to classify inputs into a finite number of categories. This means di
 
 # Basis Expansions and Regularization
 
+To transcend the constraints of linear models, one can enhance the input vector by applying transformations to it and then utilize linear models in the resulting expanded input space. One approach is to use piecewise polynomials, also known as splines, which involve dividing the input domain into contiguous intervals and fitting a separate polynomial in each interval. However, it is crucial to determine the appropriate polynomial order, number of knots, and their placement. The B-spline basis is a convenient way to represent them numerically. By using a maximal set of knots and employing regularization, the knot selection problem can be avoided, and complexity can be controlled. Another alternative is to use wavelets, which use a complete orthonormal basis to represent the function, but selectively shrink and choose the coefficients for a sparse representation. This technique is particularly useful for signal compression.
+
+# Kernel Smoothing Methods
+
+For greater flexibility, one can fit a different, yet simple model at each query point separately by utilizing data from the closest observations. To ensure that the resulting regression function is smooth, one can apply kernels that assign weights to observations that decay smoothly with distance from the target point. These kernels are typically parameterized to dictate the width of the neighborhood; examples include the Epanechnikov kernel, tri-cube kernel, or Gaussian density (with non-compact support). To avoid bias on the boundary of the domain due to asymmetry of the kernel in that region, one can fit straight lines or higher-order polynomials instead of constants. However, there is a trade-off between reducing bias and increasing variance. The kernel smoothing technique generalizes naturally to multiple dimensions, although boundary effects become a more significant issue. Additionally, kernel density estimation is an unsupervised learning procedure that can be utilized for classification.
+
+# Model Assessment and Selection
