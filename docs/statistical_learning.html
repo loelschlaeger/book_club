@@ -517,6 +517,40 @@ learning procedure that can be utilized for classification.</p>
 number="7">
 <h1><span class="header-section-number">7</span> Model Assessment and
 Selection</h1>
+<p>Models generalize well if they have a good prediction capability on
+independent test data. To decide between competing models, a reasonable
+criterium is their generalization.</p>
+<p>The prediction error of a model has three sources: error in the data
+generating process which we cannot avoid, squared bias which is the
+amount by which the average of our estimate differs from the true
+parameter, and the variance of our estimates from the truth for
+different data. Typically, the more complex the model, the lower the
+bias, but the higher the variance.</p>
+<p>Prediction error, however, always depends on a specific loss function
+and can be behave differently for, e.g., the squared-error loss versus
+the 0-1 loss.</p>
+<p>Prediction error on the training sample is not a good estimate of the
+generalization error, since it consistently decreases with model
+complexity. However, a model with zero training error is overfit to the
+training data and will typically generalize poorly.</p>
+<p>We need another method for estimating the expected test error for a
+model. Typically, a model has a tuning parameter, and we seek to find
+the optimal parameter.</p>
+<p>In a data-rich situation, one approach is dividing the data into
+training, validation, and test set (rule of thumb is 50%, 25%, 25%). But
+for insufficient amount of data, this does not work.</p>
+<p>One option are information criteria. The AIC estimates the in-sample
+prediction error, assuming a log-likelihood loss function. One
+ingredient are the number of model parameters. This concept needs to be
+generalized to the effective number of parameters in case of
+regularization. Another option is the BIC, which penalizes model
+complexity by the factor <span class="math inline">\(\log(N)\)</span>
+and is motivated from a Bayesian approach of model selection, namely
+Bayes factors. There is no clear choice between AIC and BIC for model
+selection: BIC is consistent but chooses too simple models in the finite
+sample case.</p>
+<p>Cross-validation</p>
+<p>Bootstrap</p>
 </div>
 
 
