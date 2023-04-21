@@ -61,3 +61,23 @@ To transcend the constraints of linear models, one can enhance the input vector 
 For greater flexibility, one can fit a different, yet simple model at each query point separately by utilizing data from the closest observations. To ensure that the resulting regression function is smooth, one can apply kernels that assign weights to observations that decay smoothly with distance from the target point. These kernels are typically parameterized to dictate the width of the neighborhood; examples include the Epanechnikov kernel, tri-cube kernel, or Gaussian density (with non-compact support). To avoid bias on the boundary of the domain due to asymmetry of the kernel in that region, one can fit straight lines or higher-order polynomials instead of constants. However, there is a trade-off between reducing bias and increasing variance. The kernel smoothing technique generalizes naturally to multiple dimensions, although boundary effects become a more significant issue. Additionally, kernel density estimation is an unsupervised learning procedure that can be utilized for classification.
 
 # Model Assessment and Selection
+
+Models generalize well if they have a good prediction capability on independent test data. To decide between competing models, a reasonable criterium is their generalization. 
+
+The prediction error of a model has three sources: error in the data generating process which we cannot avoid, squared bias which is the amount by which the average of our estimate differs from the true parameter, and the variance of our estimates from the truth for different data. Typically, the more complex the model, the lower the bias, but the higher the variance. 
+
+Prediction error, however, always depends on a specific loss function and can be behave differently for, e.g., the squared-error loss versus the 0-1 loss.
+
+Prediction error on the training sample is not a good estimate of the generalization error, since it consistently decreases with model complexity. However, a model with zero training error is overfit to the training data and will typically generalize poorly. 
+
+We need another method for estimating the expected test error for a model. Typically, a model has a tuning parameter, and we seek to find the optimal parameter.
+
+In a data-rich situation, one approach is dividing the data into training, validation, and test set (rule of thumb is 50\%, 25\%, 25\%). But for insufficient amount of data, this does not work.
+
+One option are information criteria. The AIC estimates the in-sample prediction error, assuming a log-likelihood loss function. One ingredient are the number of model parameters. This concept needs to be generalized to the effective number of parameters in case of regularization. Another option is the BIC, which penalizes model complexity by the factor $\log(N)$ and is motivated from a Bayesian approach of model selection, namely Bayes factors. There is no clear choice between AIC and BIC for model selection: BIC is consistent but chooses too simple models in the finite sample case.
+
+Cross-validation
+
+Bootstrap
+
+
