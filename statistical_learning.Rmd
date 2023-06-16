@@ -80,4 +80,17 @@ Cross-validation
 
 Bootstrap
 
+# Model Inference and Averaging
+
+# Additive Models, Trees, and Related Methods
+
+# Boosting and Additive Trees
+
+# Neural Networks
+
+# Support Vector Machines and Flexible Discriminants
+
+# Prototype Methods and Nearest-Neighbors
+
+
 
