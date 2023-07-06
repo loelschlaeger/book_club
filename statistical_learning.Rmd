@@ -92,5 +92,13 @@ Bootstrap
 
 # Prototype Methods and Nearest-Neighbors
 
+# Unsupervised Learning
 
+# Random Forests
+
+# Ensemble Learning
+
+# Undirected Graphical Models
+
+# High-Dimensional Problems 
 
