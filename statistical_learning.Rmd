@@ -96,7 +96,11 @@ Bootstrap
 
 # Random Forests
 
+A random forest is an average of trees. The hope is to reduce variance. The bias in the average remains the same. Trees are high-variance and low-bias procedures, so this averaging of trees fitted to bootstrap-sampled versions of the training data (bagging) is beneficial. The averaging reduces more variance if the trees are uncorrelated, so the idea for random forests is also to reduce the correlation between the single trees. This is achieved by random selection of input variables in the tree-growing process. We must be careful because this procedure increases the variance again.
+
 # Ensemble Learning
+
+Ensemble learning means to build a prediction model by combining the strengths of a collection of simpler models (e.g., random forest). 
 
 # Undirected Graphical Models
 
