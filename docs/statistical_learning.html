@@ -586,9 +586,20 @@ Learning</h1>
 </div>
 <div id="random-forests" class="section level1" number="15">
 <h1><span class="header-section-number">15</span> Random Forests</h1>
+<p>A random forest is an average of trees. The hope is to reduce
+variance. The bias in the average remains the same. Trees are
+high-variance and low-bias procedures, so this averaging of trees fitted
+to bootstrap-sampled versions of the training data (bagging) is
+beneficial. The averaging reduces more variance if the trees are
+uncorrelated, so the idea for random forests is also to reduce the
+correlation between the single trees. This is achieved by random
+selection of input variables in the tree-growing process. We must be
+careful because this procedure increases the variance again.</p>
 </div>
 <div id="ensemble-learning" class="section level1" number="16">
 <h1><span class="header-section-number">16</span> Ensemble Learning</h1>
+<p>Ensemble learning means to build a prediction model by combining the
+strengths of a collection of simpler models (e.g., random forest).</p>
 </div>
 <div id="undirected-graphical-models" class="section level1"
 number="17">
