@@ -1,0 +1,19 @@
+---
+title: "Richly Parameterized Linear Models"
+output:
+  pdf_document:
+    number_sections: true
+    latex_engine: pdflatex
+---
+
+[Hodges (2014). Richly Parameterized Linear Models: Additive, Time Series, and Spatial Models Using Random Effects.](https://www.taylorfrancis.com/books/mono/10.1201/b16019/richly-parameterized-linear-models-james-hodges)
+
+```{r, eval=knitr::is_html_output(), echo=FALSE}
+knitr::asis_output('[Download summary](richly_parameterized.pdf)')
+```
+
+# An Opinionated Survey of Methods for Mixed Linear Models
+
+The general notation of mixed linear models is $y = X\beta + Zu + \epsilon$, where the observation $y$ is explained through a design matrix $X$ connected to fixed effects $\beta$, a design matrix $Z$ connected to normal random effects $u$, and a normally distributed error $\epsilon$. The covariance matrix of the random effects $u$ is a function of unknowns $\phi_G$. "All of the oddities and inconveniences examined in this book arises because $\phi_G$ is unknown."
+
+Old-style versus new-style random effects.

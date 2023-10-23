@@ -7,6 +7,8 @@ navbar:
       href: mastering_shiny.html
     - text: "The Elements of Statistical Learning"
       href: statistical_learning.html
+    - text: "Richly Parameterized Linear Models"
+      href: richly_parameterized.html
   right:
     - icon: fa-github
       text: "Source"
