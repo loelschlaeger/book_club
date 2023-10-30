@@ -14,6 +14,7 @@ knitr::asis_output('[Download summary](richly_parameterized.pdf)')
 
 # An Opinionated Survey of Methods for Mixed Linear Models
 
-The general notation of mixed linear models is $y = X\beta + Zu + \epsilon$, where the observation $y$ is explained through a design matrix $X$ connected to fixed effects $\beta$, a design matrix $Z$ connected to normal random effects $u$, and a normally distributed error $\epsilon$. The covariance matrix of the random effects $u$ is a function of unknowns $\phi_G$. "All of the oddities and inconveniences examined in this book arises because $\phi_G$ is unknown."
+The general notation of mixed linear models is $y = X\beta + Zu + \epsilon$, where the observation $y$ is explained through a design matrix $X$ connected to fixed effects $\beta$, a design matrix $Z$ connected to normal random effects $u$, and a normally distributed error $\epsilon$. The covariance matrix of the random effects $u$ is a function of unknowns $\phi_G$. "All of the oddities and inconveniences examined in this book arise because $\phi_G$ is unknown." The author distinguishes between old-style (the underlying distribution is of interest) versus new-style random effects (also the levels themselves are of interest). Three examples are given, which can be reproduced in `R` with [`{lme4}`](https://cran.r-project.org/web/packages/lme4/index.html). Estimation results present some oddities (non-convergence, zero variance estimates), probably due to non-identified models, too less data points, numerical problems.
 
-Old-style versus new-style random effects.
+Estimation:
+
