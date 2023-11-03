@@ -379,8 +379,10 @@ matrix <span class="math inline">\(Z\)</span> connected to normal random
 effects <span class="math inline">\(u\)</span>, and a normally
 distributed error <span class="math inline">\(\epsilon\)</span>. The
 covariance matrix of the random effects <span
-class="math inline">\(u\)</span> is a function of unknowns <span
-class="math inline">\(\phi_G\)</span>. “All of the oddities and
+class="math inline">\(u\)</span> (the errors <span
+class="math inline">\(\epsilon\)</span>) is a function of unknowns <span
+class="math inline">\(\phi_G\)</span> (<span
+class="math inline">\(\phi_R\)</span>). “All of the oddities and
 inconveniences examined in this book arise because <span
 class="math inline">\(\phi_G\)</span> is unknown.” The author
 distinguishes between old-style (the underlying distribution is of
@@ -388,10 +390,17 @@ interest) versus new-style random effects (also the levels themselves
 are of interest). Three examples are given, which can be reproduced in
 <code>R</code> with <a
 href="https://cran.r-project.org/web/packages/lme4/index.html"><code>{lme4}</code></a>.
-Estimation results present some oddities (non-convergence, zero variance
+Estimation results have some oddities (non-convergence, zero variance
 estimates), probably due to non-identified models, too less data points,
-numerical problems.</p>
-<p>Estimation:</p>
+or numerical problems.</p>
+<p>Estimation with conventional analysis 1. estimates <span
+class="math inline">\(\phi\)</span> (via maximizing the restricted
+likelihood to avoid bias) and 2. treats <span
+class="math inline">\(\phi\)</span> as known and estimates <span
+class="math inline">\(\beta\)</span> and <span
+class="math inline">\(u\)</span> (via maximizing the likelihood). This
+approach has some problems … while Bayesian analysis alleviates some (?)
+problems.</p>
 </div>
 
 
