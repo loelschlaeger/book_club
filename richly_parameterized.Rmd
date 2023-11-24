@@ -18,3 +18,12 @@ The general notation of mixed linear models is $y = X\beta + Zu + \epsilon$, whe
 
 Estimation with conventional analysis 1. estimates $\phi$ (via maximizing the restricted likelihood to avoid bias) and 2. treats $\phi$ as known and estimates $\beta$ and $u$ (via maximizing the likelihood). This approach has some problems ... while Bayesian analysis alleviates some (?) problems.
 
+# Two More Tools: Alternative Formulation, Measures of Complexity
+
+# Penalized Splines as Mixed Linear Models
+
+# Additive Models and Models with Interactions
+
+
+
+
